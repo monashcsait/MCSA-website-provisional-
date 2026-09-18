@@ -1,0 +1,808 @@
+/* Homepage refresh. Layout variables are exposed in the Chinese CMS. */
+:root {
+  --content-width: 1240px;
+  --base-font: 16px;
+  --section-space: 72px;
+  --card-radius: 30px;
+  --background-wash: #fff1f3;
+  --hero-card-width: 440px;
+  --hero-slope: 48%;
+  --president-share: 46%;
+  --president-height: 500px;
+  --department-height: 480px;
+  --qr-size: 112px;
+  --contact-columns: 4
+}
+
+body {
+  font-size: var(--base-font);
+  background: radial-gradient(ellipse at 4% 2%, var(--background-wash), transparent 35%), linear-gradient(165deg, #fff 30%, var(--background-wash) 68%, #fff 100%);
+  background-attachment: scroll
+}
+
+.container {
+  max-width: var(--content-width)
+}
+
+.section {
+  padding: var(--section-space) 0
+}
+
+.section-heading {
+  display: block;
+  margin-bottom: 36px
+}
+
+.section-heading h2 {
+  display: table;
+  font-size: clamp(28px, 3vw, 38px);
+  margin-bottom: 22px
+}
+
+.section-heading>div {
+  max-width: 900px
+}
+
+.language-control #language {
+  width: 104px;
+  font-size: 13px
+}
+
+.header-inner {
+  gap: 18px
+}
+
+.header-inner nav {
+  gap: clamp(9px, 1.15vw, 20px);
+  font-size: 13px
+}
+
+.hero {
+  position: relative;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 42px;
+  padding: 80px 0 90px;
+  isolation: isolate
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2
+}
+
+.hero h1 {
+  font-size: clamp(36px, 4.1vw, 62px);
+  letter-spacing: -1px
+}
+
+.hero-art {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate
+}
+
+.hero-cut {
+  position: absolute;
+  inset: -85px calc((min(100vw, var(--content-width)) - 100vw)/2 - 40px) -90px 6%;
+  z-index: -1;
+  background: linear-gradient(145deg, #e94553, var(--red) 65%, #a00d25);
+  clip-path: polygon(var(--hero-slope) 0, 100% 0, 100% 100%, 0 100%)
+}
+
+.hero-seal {
+  width: min(100%, var(--hero-card-width));
+  min-height: 390px;
+  margin-right: 20px;
+  border-radius: var(--card-radius);
+  border: 1px solid #fff;
+  background: #fff;
+  padding: 48px 28px;
+  box-shadow: 0 22px 65px #76132420;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0
+}
+
+.hero-seal img {
+  width: 155px;
+  height: 155px;
+  object-fit: contain;
+  filter: none;
+  margin: 0 0 15px
+}
+
+.hero-seal>strong {
+  font-size: 36px;
+  line-height: 1.4;
+  margin-bottom: 18px
+}
+
+.hero-seal p {
+  max-width: 320px;
+  line-height: 1.9;
+  font-size: 15px;
+  text-align: center
+}
+
+.prose {
+  max-width: 100%;
+  font-size: var(--base-font)
+}
+
+#about .prose {
+  columns: 2;
+  column-gap: 55px
+}
+
+#about .prose p {
+  break-inside: avoid;
+  margin-bottom: 18px
+}
+
+.presidium .carousel {
+  position: relative;
+  border-radius: var(--card-radius);
+  background: white;
+  box-shadow: 0 18px 60px #8a29300c;
+  border: 1px solid #f5e0e3;
+  overflow: hidden
+}
+
+.presidium .carousel-window {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none
+}
+
+.president-slide {
+  grid-template-columns: var(--president-share) minmax(0, 1fr);
+  min-height: var(--president-height);
+  background: white
+}
+
+.president-image {
+  height: var(--president-height);
+  background: linear-gradient(140deg, #f9d6db, #fbe4e7)
+}
+
+.president-image>a {
+  display: block;
+  height: 100%
+}
+
+.president-image img {
+  object-fit: cover;
+  object-position: center 30%;
+  height: 100%;
+  width: 100%
+}
+
+.president-copy {
+  padding: 44px 44px 110px
+}
+
+.president-copy h3 {
+  font-size: clamp(30px, 3.2vw, 46px);
+  margin-bottom: 25px
+}
+
+.president-copy .role {
+  font-size: 18px;
+  color: var(--red)
+}
+
+.president-copy .pill {
+  margin-bottom: 25px
+}
+
+.president-copy p {
+  font-size: 16px;
+  line-height: 1.95
+}
+
+.presidium .carousel-controls {
+  position: absolute;
+  left: calc(var(--president-share) + 44px);
+  right: 44px;
+  bottom: 36px;
+  margin: 0
+}
+
+.carousel-controls .round {
+  width: 42px;
+  height: 42px;
+  font-size: 25px
+}
+
+.carousel-controls .pause {
+  background: white
+}
+
+.department-explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 45px;
+  align-items: start
+}
+
+.department-detail {
+  background: white;
+  border: 1px solid #f5dfe3;
+  border-radius: var(--card-radius);
+  box-shadow: 0 15px 50px #ac3b4a08;
+  padding: 38px 35px;
+  min-height: var(--department-height)
+}
+
+.detail-kicker {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 1.7px;
+  margin-bottom: 20px
+}
+
+.department-detail h3 {
+  font-size: 32px;
+  color: var(--red);
+  margin-bottom: 24px
+}
+
+.department-detail>p {
+  font-size: 16px;
+  line-height: 2;
+  color: #586375
+}
+
+.department-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 30px
+}
+
+.department-pills span {
+  font-size: 13px;
+  color: var(--red);
+  border: 1px solid #f6d0d6;
+  background: #fff4f5;
+  border-radius: 50px;
+  padding: 6px 13px
+}
+
+/* Keep the call to action visible even before a department link is supplied. */
+.department-link {
+  min-height: 50px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.department-link:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.department-scroll {
+  height: var(--department-height);
+  overflow-y: auto;
+  scrollbar-width: none;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  cursor: grab;
+  mask-image: linear-gradient(transparent, black 7%, black 94%, transparent);
+  border-radius: 10px;
+  user-select: none
+}
+
+.department-scroll::-webkit-scrollbar {
+  display: none
+}
+
+.department-scroll.dragging {
+  cursor: grabbing
+}
+
+.department-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px
+}
+
+.department-choice {
+  display: block;
+  position: relative;
+  text-align: left;
+  width: 100%;
+  padding: 26px 28px;
+  min-height: 123px;
+  border: 1px solid #f2dce0;
+  border-radius: 24px;
+  background: #ffffffee;
+  box-shadow: 0 8px 24px #ad485508;
+  cursor: inherit;
+  flex-shrink: 0;
+  transition: border-color .2s, background .2s
+}
+
+.department-choice.selected {
+  border-color: var(--red);
+  background: #fff6f7
+}
+
+.department-choice-title {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 11px
+}
+
+.department-choice.selected .department-choice-title {
+  color: var(--red)
+}
+
+.department-choice-summary {
+  font-size: 14px;
+  color: #79818e;
+  display: block;
+  line-height: 1.7
+}
+
+.department-choice-arrow {
+  position: absolute;
+  right: 26px;
+  top: 28px;
+  color: var(--red);
+  opacity: 0
+}
+
+.department-choice.selected .department-choice-arrow {
+  opacity: 1
+}
+
+.department-list-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--muted);
+  padding: 13px 5px
+}
+
+.department-pause {
+  font-size: 11px;
+  padding: 5px 11px;
+  background: #fff9fa;
+  border-radius: 20px
+}
+
+.contact-section {
+  background: linear-gradient(120deg, #fff5f6, var(--background-wash));
+  padding: 32px 36px;
+  margin: 35px 0 50px;
+  border: 1px solid #f2d8dd;
+  border-radius: var(--card-radius);
+  box-shadow: 0 14px 45px #99324608
+}
+
+.contact-section .section-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 27px
+}
+
+.contact-section .section-heading h2 {
+  font-size: 25px;
+  margin-bottom: 0;
+  white-space: nowrap
+}
+
+.contact-section .social-grid {
+  grid-template-columns: repeat(var(--contact-columns), minmax(0, 1fr));
+  max-width: 880px;
+  gap: 28px
+}
+
+.contact-section .social-card {
+  padding: 6px 0
+}
+
+.qr-frame {
+  height: var(--qr-size);
+  width: var(--qr-size);
+  padding: 6px;
+  margin: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px #93354109;
+  overflow: hidden
+}
+
+.qr-frame>a {
+  display: block;
+  width: 100%;
+  height: 100%
+}
+
+.qr-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain
+}
+
+.qr-frame .sprite {
+  width: 100%;
+  height: 100%
+}
+
+.qr-frame .sprite img {
+  height: auto
+}
+
+.qr-pending {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px dashed #eac6ce;
+  border-radius: 8px;
+  color: #a36d78;
+  text-align: center
+}
+
+.qr-pending>span {
+  font-size: 27px;
+  font-weight: 300
+}
+
+.qr-pending small {
+  font-size: 10px
+}
+
+.contact-section .social-card h3 {
+  font-size: 13px;
+  margin: 13px 0 3px
+}
+
+.contact-section .social-card p {
+  font-size: 11px
+}
+
+.social-accounts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px 38px;
+  margin-top: 27px;
+  padding-top: 22px;
+  border-top: 1px solid #efdae0;
+  font-size: 12px
+}
+
+.footer {
+  background: #fff9fa;
+  padding: 23px 0
+}
+
+.footer>.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left
+}
+
+.footer-links {
+  margin: 0;
+  gap: 10px 20px;
+  justify-content: flex-start
+}
+
+.footer p {
+  font-size: 11px
+}
+
+.policy-copy {
+  max-width: 900px
+}
+
+.policy-copy p {
+  margin-bottom: 18px
+}
+
+.policy-copy h2 {
+  font-size: 23px;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  letter-spacing: 0
+}
+
+.privacy-options {
+  max-width: 720px;
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  margin-bottom: 25px
+}
+
+.privacy-options label {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 13px 0
+}
+
+.privacy-options input {
+  margin-top: 8px;
+  accent-color: var(--red)
+}
+
+.feedback-action {
+  margin-top: 25px;
+  margin-bottom: 45px
+}
+
+@media(max-width:1100px) {
+  .hero {
+    gap: 28px
+  }
+
+  .hero-seal {
+    padding: 32px 22px;
+    min-height: 350px
+  }
+
+  .hero-art {
+    min-height: 450px
+  }
+
+  .department-explorer {
+    gap: 25px
+  }
+
+  .department-detail {
+    padding: 30px 26px
+  }
+
+  .president-copy {
+    padding: 30px 30px 100px
+  }
+
+  .presidium .carousel-controls {
+    left: calc(var(--president-share) + 30px);
+    right: 30px
+  }
+
+  .carousel-controls .dots {
+    gap: 7px
+  }
+
+  .carousel-controls .pause {
+    padding: 5px 10px
+  }
+
+  .footer>.container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center
+  }
+
+  .footer-links {
+    justify-content: center
+  }
+}
+
+@media(max-width:760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 45px 0 55px;
+    gap: 30px
+  }
+
+  .hero-copy {
+    max-width: 600px;
+    margin: auto
+  }
+
+  .hero .actions {
+    justify-content: center
+  }
+
+  .hero-art {
+    min-height: 380px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto
+  }
+
+  .hero-cut {
+    inset: 0 -22px 0 10%;
+    border-radius: 25px 0 0 25px
+  }
+
+  .hero-seal {
+    width: min(90%, var(--hero-card-width));
+    min-height: 330px;
+    margin: 0 15px 0 0
+  }
+
+  .hero-seal img {
+    width: 125px;
+    height: 125px
+  }
+
+  .hero-seal strong {
+    font-size: 30px
+  }
+
+  .hero-seal p {
+    font-size: 14px
+  }
+
+  .section {
+    padding: calc(var(--section-space)*.65) 0
+  }
+
+  .section-heading h2 {
+    font-size: 28px
+  }
+
+  #about .prose {
+    columns: 1
+  }
+
+  .president-slide {
+    grid-template-columns: 1fr;
+    min-height: 0
+  }
+
+  .president-image {
+    height: 350px
+  }
+
+  .president-image img {
+    object-fit: contain
+  }
+
+  .president-copy {
+    padding: 28px 26px 100px;
+    min-height: 330px
+  }
+
+  .president-copy p {
+    font-size: 15px
+  }
+
+  .president-copy h3 {
+    font-size: 33px;
+    margin-bottom: 20px
+  }
+
+  .presidium .carousel-controls {
+    left: 26px;
+    right: 26px;
+    bottom: 28px
+  }
+
+  .department-explorer {
+    grid-template-columns: 1fr;
+    gap: 20px
+  }
+
+  .department-detail {
+    min-height: 0;
+    padding: 30px 25px
+  }
+
+  .department-detail h3 {
+    font-size: 28px
+  }
+
+  .department-detail>p {
+    font-size: 15px
+  }
+
+  .department-scroll {
+    height: min(var(--department-height), 390px)
+  }
+
+  .department-choice {
+    padding: 23px;
+    min-height: 114px
+  }
+
+  .department-choice-title {
+    font-size: 20px
+  }
+
+  .department-choice-summary {
+    font-size: 13px
+  }
+
+  .contact-section {
+    padding: 25px 20px;
+    margin-bottom: 30px
+  }
+
+  .contact-section .section-heading {
+    display: block
+  }
+
+  .contact-section .section-heading>div {
+    margin-top: 12px;
+    font-size: 13px
+  }
+
+  .contact-section .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 14px
+  }
+
+  .social-accounts {
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center
+  }
+
+  .language-control #language {
+    width: 95px;
+    font-size: 12px
+  }
+
+  .header-inner {
+    gap: 8px
+  }
+
+  .brand small {
+    max-width: 105px
+  }
+
+  .brand img {
+    width: 37px;
+    height: 37px
+  }
+
+  .menu-button {
+    padding: 5px 7px
+  }
+
+  .footer>.container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+  }
+
+  .footer-links {
+    font-size: 11px;
+    gap: 8px 15px;
+    justify-content: center
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .department-choice {
+    transition: none
+  }
+}
+
+/* The full association mark includes both Chinese and English lettering. */
+.hero-seal img.hero-brand-image {
+  width: min(100%, 350px);
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+  align-self: center;
+}
