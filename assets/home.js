@@ -35,7 +35,7 @@
         <div class="hero-art">
           <div class="hero-cut" aria-hidden="true"></div>
           <div class="hero-seal">
-            ${image(data.settings.heroLogo || data.settings.logo, 'Monash Chinese Students Association | MCSA', null, 'hero-brand-image')}
+            ${image(data.settings.heroLogo || data.settings.logo, 'Monash Chinese Student Association', null, 'hero-brand-image')}
             <strong>MCSA</strong>
             <p>${esc(t(data.settings.heroBlurb))}</p>
           </div>
