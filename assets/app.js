@@ -98,7 +98,7 @@
         ['hant', '繁體中文']
       ]
       .map(([value, name]) => `<option value="${value}" ${value === lang ? 'selected' : ''}>${name}</option>`).join('');
-    const brand = image(data.settings.logo, 'Monash Chinese Students Association | MCSA') + `
+    const brand = image(data.settings.logo, 'MCSA') + `
       <span>
         <strong>Monash Chinese Students Association | MCSA</strong>
         <small>${ui('蒙纳士中国学生会', 'Monash Chinese Students Association', '蒙納士中國學生會')}</small>
