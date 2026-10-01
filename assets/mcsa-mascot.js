@@ -39,12 +39,8 @@
     </svg>`;
 
   function motionAllowed() {
-    if (reducedMotion.matches) return false;
-    try {
-      return JSON.parse(localStorage.getItem('mcsa-preferences') || '{}').motion !== false;
-    } catch {
-      return true;
-    }
+    const preferences = window.MCSA?.preferences;
+    return preferences ? !preferences.reducedMotion : !reducedMotion.matches;
   }
 
   function labels() {
@@ -149,6 +145,7 @@
 
   // app.js dispatches this event after initial loading and each language change.
   window.addEventListener('mcsa-render', mount);
+  window.addEventListener('mcsa-preferences-change', updateMotion);
   window.addEventListener('resize', schedulePosition, { passive: true });
   window.addEventListener('pageshow', mount);
   document.addEventListener('visibilitychange', updateMotion);

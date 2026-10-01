@@ -1,25 +1,13 @@
 (() => {
   'use strict';
-  let preferences = {
-    remember: true,
-    intro: true,
-    motion: true
-  };
-  try {
-    preferences = {
-      ...preferences,
-      ...JSON.parse(localStorage.getItem('mcsa-preferences') || '{}')
-    };
-  } catch {}
-  const reducedMotion = () => !preferences.motion || matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const langs = ['zh', 'en', 'hant'];
-  let lang = 'zh';
-  try {
-    lang = localStorage.getItem('mcsa-language') || 'zh'
-  } catch {}
-  if (lang === 'yue') lang = 'hant';
-  if (!langs.includes(lang)) lang = 'zh';
+  const preferenceStore = window.MCSAPreferences.create();
+  let preferences = preferenceStore.value;
+  const motionQuery = matchMedia('(prefers-reduced-motion: reduce)');
+  const reducedMotion = () => !preferences.motion || motionQuery.matches;
+  let lang = preferences.language;
   if (document.body.dataset.page === 'admin') lang = 'zh';
+  let preferenceDraft = null, preferenceStatus = '', homeReady = false, previewMode = false;
+  let promptResize = null, statusResize = null, closeIntro = null;
   let data = null;
   let slide = 0,
     timer = null,
@@ -39,6 +27,77 @@
     en,
     hant
   });
+
+  function storageStatus(result) {
+    if (!result.persistent) return result.session
+      ? ui('浏览器无法长期保存；选择仅在当前标签页会话内有效。', 'Your browser cannot save permanently. Choices apply to this tab session only.', '瀏覽器無法長期保存；選擇僅在當前標籤頁工作階段內有效。')
+      : ui('浏览器无法保存；选择仅在当前页面有效。', 'Your browser cannot save. Choices apply to this page only.', '瀏覽器無法保存；選擇僅在當前頁面有效。');
+    if (preferences.remember) return ui('偏好已保存。', 'Preferences saved.', '偏好已保存。');
+    return result.session
+      ? ui('已记住不保存的决定；其他偏好仅在当前标签页会话内有效。', 'Your decision not to save is remembered. Other preferences apply to this tab session only.', '已記住不保存的決定；其他偏好僅在當前標籤頁工作階段內有效。')
+      : ui('已记住不保存的决定；浏览器无法保存临时偏好，其他选择仅在当前页面有效。', 'Your decision not to save is remembered. Temporary preferences could not be saved and apply to this page only.', '已記住不保存的決定；瀏覽器無法保存臨時偏好，其他選擇僅在當前頁面有效。');
+  }
+
+  function notifyPreferences() {
+    preferences = preferenceStore.value;
+    window.dispatchEvent(new CustomEvent('mcsa-preferences-change', {
+      detail: Object.freeze({ ...preferences, reducedMotion: reducedMotion() })
+    }));
+  }
+
+  function showStorageStatus(message) {
+    const live = document.querySelector('#local-preferences-status');
+    if (!live) return;
+    statusResize?.disconnect();
+    live.innerHTML = `<span>${esc(message)}</span><button type="button" aria-label="${ui('关闭提示', 'Dismiss notice', '關閉提示')}">×</button>`;
+    const resize = () => document.documentElement.style.setProperty('--privacy-status-height', `${live.getBoundingClientRect().height}px`);
+    statusResize = new ResizeObserver(resize);
+    statusResize.observe(live);
+    resize();
+    live.querySelector('button').onclick = () => {
+      statusResize?.disconnect();
+      statusResize = null;
+      live.replaceChildren();
+      document.documentElement.style.removeProperty('--privacy-status-height');
+      document.querySelector('.brand')?.focus({ preventScroll: true });
+    };
+  }
+
+  function removePrivacyPrompt() {
+    promptResize?.disconnect();
+    promptResize = null;
+    document.querySelector('#privacy-prompt')?.remove();
+    document.documentElement.style.removeProperty('--privacy-prompt-height');
+    document.body.classList.remove('has-privacy-prompt');
+  }
+
+  function privacyPrompt() {
+    removePrivacyPrompt();
+    if (page !== 'home' || !homeReady || previewMode || preferences.choice || document.querySelector('.opening')) return;
+    const card = document.createElement('section');
+    card.id = 'privacy-prompt';
+    card.className = 'privacy-prompt';
+    card.setAttribute('aria-labelledby', 'privacy-prompt-title');
+    card.innerHTML = `<div class="privacy-prompt-copy"><h2 id="privacy-prompt-title">${ui('您的隐私与本机偏好', 'Your privacy and local preferences', '您的隱私與本機偏好')}</h2>
+      <p>${ui('允许保存后，我们会在这个浏览器记住语言、开场动画和动态效果选择。不保存时，仅长期记住这个决定，其他选择在当前标签页会话内有效。', 'Allow saving to remember your language, intro and motion choices in this browser. If you decline, only that decision is remembered permanently; other choices apply to this tab session.', '允許保存後，我們會在這個瀏覽器記住語言、開場動畫和動態效果選擇。不保存時，僅長期記住這個決定，其他選擇在當前標籤頁工作階段內有效。')}</p></div>
+      <div class="privacy-prompt-actions"><button type="button" class="button primary" data-privacy-choice="allowed">${ui('允许保存', 'Allow saving', '允許保存')}</button>
+      <button type="button" class="button" data-privacy-choice="denied">${ui('不保存', 'Do not save', '不保存')}</button>
+      ${a('privacy-settings.html', ui('自定义设置', 'Customize settings', '自訂設置'), 'text-link')}</div>`;
+    document.body.append(card);
+    document.body.classList.add('has-privacy-prompt');
+    const resize = () => document.documentElement.style.setProperty('--privacy-prompt-height', `${card.getBoundingClientRect().height}px`);
+    promptResize = new ResizeObserver(resize);
+    promptResize.observe(card);
+    resize();
+    card.querySelectorAll('[data-privacy-choice]').forEach(button => button.onclick = () => {
+      const result = preferenceStore.save({ ...preferences, remember: button.dataset.privacyChoice === 'allowed' }, lang);
+      notifyPreferences();
+      const status = storageStatus(result);
+      removePrivacyPrompt();
+      showStorageStatus(status);
+      document.querySelector('.brand')?.focus({ preventScroll: true });
+    });
+  }
 
   function safe(v) {
     if (typeof v !== 'string' || /[\u0000-\u0020\\]/.test(v)) return '';
@@ -255,7 +314,6 @@
     if (page === 'presidents') result += archives();
     else if (page === 'discounts') result += merchantGrid();
     else if (page === 'sponsors') result += sponsorGrid();
-    else if (page === 'privacy-settings') result += `<button class="button" id="clear-preferences">${ui('清除本机偏好', 'Clear local preferences', '清除本機偏好')}</button><p id="preferences-status" role="status"></p>`;
     if (page !== 'contact') result += postGridOptional(page);
     return result;
   }
@@ -264,17 +322,24 @@
     let result = `<header class="page-heading"><span class="eyebrow">MCSA</span><h1>${esc(t(pageInfo.title))}</h1></header><article class="policy-copy">`;
     result += pageInfo.paragraphs.map((text, index) => index % 2 === 0 ? `<h2>${esc(t(text))}</h2>` : `<p>${esc(t(text))}</p>`).join('') + '</article>';
     if (page === 'feedback') result += `<a class="button primary feedback-action" href="mailto:${esc(data.settings.email)}?subject=${encodeURIComponent(ui('网站反馈','Website feedback','網站反饋'))}">${ui('发送网站反馈','Send website feedback','發送網站反饋')} ↗</a>`;
-    if (page === 'privacy-settings') result += `<div class="privacy-options">
-      <label><input id="remember-preferences" type="checkbox" ${preferences.remember?'checked':''}>${ui('允许保存本机偏好','Remember preferences on this device','允許保存本機偏好')}</label>
-      <label><input id="show-intro" type="checkbox" ${preferences.intro?'checked':''}>${ui('显示开场动画','Show opening animation','顯示開場動畫')}</label>
-      <label><input id="allow-motion" type="checkbox" ${preferences.motion?'checked':''}>${ui('允许自动轮播和滚动','Allow automatic carousels and scrolling','允許自動輪播和滾動')}</label>
-      <button class="button" id="save-preferences">${ui('保存偏好','Save preferences','保存偏好')}</button>
-      <button class="button" id="clear-preferences">${ui('清除本机偏好','Clear local preferences','清除本機偏好')}</button>
-      <p id="preferences-status" role="status"></p></div>`;
+    if (page === 'privacy-settings') {
+      const selected = preferenceDraft || preferences;
+      result += `<form class="privacy-options" id="preferences-form" aria-labelledby="local-preferences-title">
+        <h2 id="local-preferences-title">${ui('本机偏好', 'Local preferences', '本機偏好')}</h2>
+        <label><input id="remember-preferences" type="checkbox" ${selected.remember?'checked':''}><span>${ui('允许保存本机偏好','Remember preferences on this device','允許保存本機偏好')}<small>${ui('关闭后，仅长期记住不保存的决定；其他偏好在当前标签页会话内有效。', 'When off, only your decision not to save is remembered permanently. Other preferences apply to this tab session.', '關閉後，僅長期記住不保存的決定；其他偏好在當前標籤頁工作階段內有效。')}</small></span></label>
+        <label><input id="show-intro" type="checkbox" ${selected.intro?'checked':''}><span>${ui('显示开场动画','Show opening animation','顯示開場動畫')}<small>${ui('进入首页时播放，每个标签页会话内最多一次；系统减少动态效果设置优先。', 'Play on entering the homepage, at most once per tab session. Your system’s reduced-motion setting takes priority.', '進入首頁時播放，每個標籤頁工作階段內最多一次；系統減少動態效果設置優先。')}</small></span></label>
+        <label><input id="allow-motion" type="checkbox" ${selected.motion?'checked':''}><span>${ui('允许自动动态效果', 'Allow automatic motion', '允許自動動態效果')}<small>${ui('控制自动轮播、滚动及熊猫动画；关闭后仍可手动浏览。', 'Control automatic carousels, scrolling and mascot animation. Manual browsing remains available when off.', '控制自動輪播、滾動及熊貓動畫；關閉後仍可手動瀏覽。')}</small></span></label>
+        <div class="preferences-actions"><button class="button primary" type="submit">${ui('保存偏好','Save preferences','保存偏好')}</button>
+        <button class="button" type="button" id="clear-preferences">${ui('清除本机偏好','Clear local preferences','清除本機偏好')}</button></div>
+        <p id="preferences-status" role="status">${esc(preferenceStatus)}</p></form>`;
+    }
     return result + postGridOptional(page);
   }
 
   function render() {
+    statusResize?.disconnect();
+    statusResize = null;
+    document.documentElement.style.removeProperty('--privacy-status-height');
     window.MCSAHome.cleanup();
     window.MCSAHome.applyLayout(data.layout);
     clearInterval(timer);
@@ -285,12 +350,15 @@
       hant: 'zh-Hant'
     } [lang];
     document.title = (page === 'admin' ? ui('内容管理', 'Content management', '內容管理') : page.startsWith('department-') ? t(data.departments.find(d => 'department-' + d.id === page).name) : label(page)).replace(/\n/g, ' ') + ' | MCSA';
-    document.querySelector('#app').innerHTML = nav() + `<main id="main" class="container">${content()}</main>${page==='admin'?'':`<div class="container">${contacts()}</div>`}<footer class="footer"><div class="container"><nav class="footer-links">${data.footerLinks.map(link=>a(link.url,esc(t(link.name)))).join('')}</nav><p>${esc(t(data.settings.footer))}</p></div></footer><button id="back-top" class="round" aria-label="${ui('返回顶部', 'Back to top', '返回頂部')}" title="${ui('返回顶部', 'Back to top', '返回頂部')}">↑</button>`;
+    const footerLinks = data.footerLinks.some(link => link.id === 'privacy-settings') ? data.footerLinks
+      : [...data.footerLinks, { url: 'privacy-settings.html', name: ui('您的隐私设置', 'Privacy settings', '您的隱私設置') }];
+    document.querySelector('#app').innerHTML = nav() + `<main id="main" class="container">${content()}</main>${page==='admin'?'':`<div class="container">${contacts()}</div>`}<footer class="footer"><div class="container"><nav class="footer-links">${footerLinks.map(link=>a(link.url,esc(t(link.name)))).join('')}</nav><p>${esc(t(data.settings.footer))}</p></div></footer><p id="local-preferences-status" class="local-preferences-status" role="status"></p><button id="back-top" class="round" aria-label="${ui('返回顶部', 'Back to top', '返回頂部')}" title="${ui('返回顶部', 'Back to top', '返回頂部')}">↑</button>`;
     bind();
     bindCollections();
     window.MCSAHome.bindDepartments(viewContext(), reducedMotion());
     document.querySelector('.skip').textContent = ui('跳到正文', 'Skip to content', '跳到正文');
     window.dispatchEvent(new CustomEvent('mcsa-render'));
+    privacyPrompt();
   }
 
   function updateSlide() {
@@ -327,10 +395,11 @@
         return
       }
       lang = e.target.value;
-      try {
-        if (preferences.remember) localStorage.setItem('mcsa-language', lang)
-      } catch {}
-      render()
+      const result = preferenceStore.setLanguage(lang);
+      notifyPreferences();
+      preferenceStatus = '';
+      render();
+      if ((!result.session && !preferences.remember) || (preferences.remember && !result.persistent)) showStorageStatus(storageStatus(result));
     };
     document.querySelector('.menu-button').onclick = e => {
       const n = document.querySelector('#navigation');
@@ -400,7 +469,7 @@
       const strip = button.closest('.term').querySelector('.member-strip');
       strip.scrollBy({
         left: Number(button.dataset.member) * (strip.firstElementChild?.offsetWidth + 20 || 200),
-        behavior: 'smooth'
+        behavior: reducedMotion() ? 'auto' : 'smooth'
       });
     });
     (window.termTimers || []).forEach(clearInterval);
@@ -419,7 +488,7 @@
         update();
       };
       window.termTimers.push(setInterval(() => {
-        if (stopped || document.hidden || term.matches(':hover,:focus-within')) return;
+        if (stopped || reducedMotion() || document.hidden || document.querySelector('.opening') || term.matches(':hover,:focus-within')) return;
         const card = members.firstElementChild;
         if (!card) return;
         if (members.scrollWidth <= members.clientWidth + 2) {
@@ -428,11 +497,12 @@
           const end = members.scrollLeft + members.clientWidth >= members.scrollWidth - 5;
           members.scrollTo({
             left: end ? 0 : members.scrollLeft + card.offsetWidth + 20,
-            behavior: 'smooth'
+            behavior: reducedMotion() ? 'auto' : 'smooth'
           });
         }
       }, 6500));
     });
+    clearInterval(window.eventTimer);
     const strip = document.querySelector('.event-strip');
     if (strip) {
       let position = 0,
@@ -455,81 +525,94 @@
         stopped = !stopped;
         update();
       };
-      clearInterval(window.eventTimer);
       window.eventTimer = setInterval(() => {
-        if (!stopped && !document.hidden && !strip.parentElement.matches(':hover,:focus-within')) move(1);
+        if (!stopped && !reducedMotion() && !document.hidden && !document.querySelector('.opening') && !strip.parentElement.matches(':hover,:focus-within')) move(1);
       }, data.layout.carouselSeconds * 1000);
     }
-    const savePreferences = document.querySelector('#save-preferences');
-    if (savePreferences) savePreferences.onclick = () => {
-      preferences = {
-        remember: document.querySelector('#remember-preferences').checked,
-        intro: document.querySelector('#show-intro').checked,
-        motion: document.querySelector('#allow-motion').checked
+    const form = document.querySelector('#preferences-form');
+    const readDraft = () => ({
+      remember: document.querySelector('#remember-preferences').checked,
+      intro: document.querySelector('#show-intro').checked,
+      motion: document.querySelector('#allow-motion').checked
+    });
+    if (form) {
+      form.querySelectorAll('input').forEach(input => input.onchange = () => {
+        preferenceDraft = readDraft();
+        preferenceStatus = '';
+        document.querySelector('#preferences-status').textContent = '';
+      });
+      form.onsubmit = event => {
+        event.preventDefault();
+        const result = preferenceStore.save(readDraft(), lang);
+        preferenceDraft = null;
+        notifyPreferences();
+        preferenceStatus = storageStatus(result);
+        document.querySelector('#preferences-status').textContent = preferenceStatus;
       };
-      try {
-        if (preferences.remember) localStorage.setItem('mcsa-preferences', JSON.stringify(preferences));
-        else {
-          localStorage.removeItem('mcsa-preferences');
-          localStorage.removeItem('mcsa-language');
-          sessionStorage.removeItem('mcsa-intro-seen');
-        }
-      } catch {}
-      document.querySelector('#preferences-status').textContent = preferences.remember ? ui('偏好已保存。', 'Preferences saved.', '偏好已保存。') : ui('已停止保存，当前选择仅在本页生效。', 'Storage disabled. These choices apply to this page only.', '已停止保存，當前選擇僅在本頁生效。');
-    };
+    }
     const clear = document.querySelector('#clear-preferences');
     if (clear) clear.onclick = () => {
-      try {
-        localStorage.removeItem('mcsa-language');
-        localStorage.removeItem('mcsa-preferences');
-        sessionStorage.removeItem('mcsa-intro-seen');
-      } catch {}
-      document.querySelector('#preferences-status').textContent = ui('已清除。', 'Preferences cleared.', '已清除。');
+      const cleared = preferenceStore.clear();
+      preferenceDraft = null;
+      notifyPreferences();
+      lang = preferences.language;
+      preferenceStatus = cleared
+        ? ui('已清除本机记录并恢复默认；下次进入首页会重新提示。', 'Local records cleared and defaults restored. You will be prompted next time you enter the homepage.', '已清除本機記錄並恢復預設；下次進入首頁會重新提示。')
+        : ui('已恢复当前页面默认设置，但浏览器无法完整清除保存记录。', 'Defaults restored on this page, but your browser could not clear all saved records.', '已恢復當前頁面預設設置，但瀏覽器無法完整清除保存記錄。');
+      render();
+      document.querySelector('#clear-preferences')?.focus({ preventScroll: true });
     };
   }
 
   function intro() {
-    if (new URLSearchParams(location.search).has('preview')) return;
-    if (page !== 'home' || !preferences.intro || reducedMotion()) return;
-    try {
-      if (sessionStorage.getItem('mcsa-intro-seen')) return;
-      if (preferences.remember) sessionStorage.setItem('mcsa-intro-seen', '1')
-    } catch {}
+    if (previewMode || page !== 'home' || !preferences.intro || reducedMotion() || preferenceStore.introSeen) return Promise.resolve();
     const src = safe(data.settings.opening);
-    if (!src) return;
-    const overlay = document.createElement('div');
-    overlay.className = 'opening';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-label', ui('MCSA 开场动画', 'MCSA opening animation', 'MCSA 開場動畫'));
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.innerHTML = `<img alt="MCSA" src="${esc(src)}"><button>${ui('跳过动画', 'Skip intro', '跳過動畫')} →</button>`;
-    document.body.append(overlay);
-    document.querySelector('#app').inert = true;
-    document.body.style.overflow = 'hidden';
-    let ended = false;
+    if (!src) return Promise.resolve();
+    return new Promise(resolve => {
+      const overlay = document.createElement('div');
+      overlay.className = 'opening';
+      overlay.setAttribute('role', 'dialog');
+      overlay.setAttribute('aria-label', ui('MCSA 开场动画', 'MCSA opening animation', 'MCSA 開場動畫'));
+      overlay.setAttribute('aria-modal', 'true');
+      overlay.innerHTML = `<img alt="MCSA" src="${esc(src)}"><button>${ui('跳过动画', 'Skip intro', '跳過動畫')} →</button>`;
+      document.body.append(overlay);
+      document.querySelector('#app').inert = true;
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      let ended = false, playbackTimer = null;
+      const timeout = setTimeout(close, 30000);
 
-    function close() {
-      if (ended) return;
-      ended = true;
-      overlay.remove();
-      document.querySelector('#app').inert = false;
-      document.body.style.overflow = '';
-      document.querySelector('.brand')?.focus()
-    }
-    overlay.querySelector('button').onclick = close;
-    overlay.querySelector('button').focus();
-    overlay.onkeydown = e => {
-      if (e.key === 'Escape') close();
-      if (e.key === 'Tab') {
-        e.preventDefault();
-        overlay.querySelector('button').focus()
+      function close() {
+        if (ended) return;
+        ended = true;
+        clearTimeout(playbackTimer);
+        clearTimeout(timeout);
+        closeIntro = null;
+        overlay.remove();
+        document.querySelector('#app').inert = false;
+        document.body.style.overflow = previousOverflow;
+        preferenceStore.markIntroSeen();
+        document.querySelector('.brand')?.focus({ preventScroll: true });
+        resolve();
       }
-    };
-    const img = overlay.querySelector('img');
-    img.onload = () => setTimeout(close, data.settings.openingDuration || 5600);
-    img.onerror = close;
-    if (img.complete && img.naturalWidth) setTimeout(close, data.settings.openingDuration || 5600);
-    setTimeout(close, 30000)
+      closeIntro = close;
+      overlay.querySelector('button').onclick = close;
+      overlay.querySelector('button').focus();
+      overlay.onkeydown = e => {
+        if (e.key === 'Escape') close();
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          overlay.querySelector('button').focus()
+        }
+      };
+      const img = overlay.querySelector('img');
+      const loaded = () => {
+        if (!ended && playbackTimer === null) playbackTimer = setTimeout(close, data.settings.openingDuration || 5600);
+      };
+      img.onload = loaded;
+      img.onerror = close;
+      if (img.complete) img.naturalWidth ? loaded() : close();
+    });
   }
   window.MCSA = {
     esc,
@@ -543,12 +626,24 @@
     get lang() {
       return lang
     },
+    get preferences() {
+      return Object.freeze({ ...preferences, language: lang, reducedMotion: reducedMotion() });
+    },
     render,
     setData(d) {
       data = d;
       render()
     }
   };
+  function applyMotion() {
+    if (reducedMotion() || !preferences.intro) closeIntro?.();
+    if (!data) return;
+    restart();
+    bindCollections();
+    window.MCSAHome.bindDepartments(viewContext(), reducedMotion());
+  }
+  window.addEventListener('mcsa-preferences-change', applyMotion);
+  motionQuery.addEventListener('change', notifyPreferences);
   document.addEventListener('click', e => document.querySelectorAll('.nav-dropdown[open]').forEach(d => {
     if (!d.contains(e.target)) d.open = false
   }));
@@ -566,32 +661,56 @@
     document.querySelector('#retry-content')?.addEventListener('click', () => location.reload());
   }
 
-  let loading = false;
+  let loading = false, loadGeneration = 0;
   async function loadWebsite() {
     if (loading) return;
     loading = true;
+    const generation = ++loadGeneration;
+    homeReady = false;
+    closeIntro?.();
+    removePrivacyPrompt();
+    preferences = preferenceStore.refresh();
+    lang = preferences.language;
+    preferenceDraft = null;
     clearInterval(timer);
     window.MCSAHome.cleanup();
     connectionState();
     try {
-      const preview = window.MCSAContent.previewRequested();
-      const result = await (preview ? window.MCSAContent.previewData() : window.MCSAContent.load());
+      previewMode = new URLSearchParams(location.search).has('preview');
+      const client = window.MCSAContent;
+      const preview = client?.previewRequested() || false;
+      const result = client ? await (preview ? client.previewData() : client.load())
+        : { data: window.MCSA_DATA, revision: 'local' };
+      if (generation !== loadGeneration) return;
+      if (!result.data?.pages?.home || !result.data.settings || !result.data.layout) throw new Error('Website content is missing.');
       data = result.data;
       if (preview) lang = 'zh';
       document.documentElement.dataset.contentRevision = String(result.revision);
       render();
-      if (!preview) intro();
+      await intro();
+      if (generation !== loadGeneration) return;
       if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      if (generation !== loadGeneration) return;
+      homeReady = true;
+      privacyPrompt();
     } catch (error) {
-      console.error('MCSA content loading failed:', error);
-      connectionState(true);
+      if (generation === loadGeneration) {
+        console.error('MCSA content loading failed:', error);
+        homeReady = false;
+        removePrivacyPrompt();
+        connectionState(true);
+      }
     } finally {
-      loading = false;
+      if (generation === loadGeneration) loading = false;
     }
   }
   // A browser Back navigation can restore the previous DOM without requesting HTML.
   window.addEventListener('pageshow', event => {
-    if (event.persisted && !window.MCSAContent.previewRequested()) loadWebsite();
+    if (event.persisted && !previewMode) {
+      loading = false;
+      loadWebsite();
+    }
   });
   loadWebsite();
 })();

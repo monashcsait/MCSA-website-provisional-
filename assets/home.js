@@ -334,7 +334,7 @@
     function animate(now) {
       const elapsed = Math.min(now - previousTime, 50) / 1000;
       previousTime = now;
-      if (!manualPause && !dragging && !document.hidden && now > nextAutoTime && !viewport.matches(':hover,:focus-within')) {
+      if (!reducedMotion && !manualPause && !dragging && !document.hidden && !document.querySelector('.opening') && now > nextAutoTime && !viewport.matches(':hover,:focus-within')) {
         remainder += elapsed * data.layout.departmentSpeed;
         if (remainder >= 1) {
           viewport.scrollTop += Math.floor(remainder) * (data.layout.departmentDirection === 'down' ? -1 : 1);
