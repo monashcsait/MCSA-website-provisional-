@@ -6,9 +6,7 @@
   const reducedMotion = () => !preferences.motion || motionQuery.matches;
   let lang = preferences.language;
   if (document.body.dataset.page === 'admin') lang = 'zh';
-  let preferenceDraft = null, preferenceStatus = '', homeReady = false, previewMode = false;
-  let promptResize = null, statusResize = null, closeIntro = null;
-  let data = null;
+  let data = window.MCSA_DATA;
   let slide = 0,
     timer = null,
     paused = false;
@@ -137,7 +135,9 @@
     } [k] || label(k)) : label(k)
   }
 
-  // Navigation and department cards deliberately share the same department URL.
+  // The navigation and homepage heading open the department directory.
+  const departmentDirectoryRoute = () => lang === 'en' ? 'departments-en.html' : 'departments.html';
+
   function nav() {
     const primaryLinks = ['about', 'latest-events', 'campus-info', 'past-review']
       .map(key => a(route(key), esc(navLabel(key)), page === key ? 'active' : ''))
@@ -145,12 +145,6 @@
     const secondaryLinks = ['presidents', 'discounts', 'sponsors']
       .map(key => a(route(key), esc(navLabel(key)), page === key ? 'active' : ''))
       .join('');
-    const departmentLinks = data.departments.map(department => {
-      const name = esc(t(department.name));
-      return department.url ?
-        a(department.url, name) :
-        `<span class="nav-disabled">${name}</span>`;
-    }).join('');
     const languageOptions = [
         ['zh', '简体中文'],
         ['en', 'English'],
@@ -159,7 +153,7 @@
       .map(([value, name]) => `<option value="${value}" ${value === lang ? 'selected' : ''}>${name}</option>`).join('');
     const brand = image(data.settings.logo, 'MCSA') + `
       <span>
-        <b>Monash Chinese Student Association</b>
+        <b>Monash Chinese Students Association</b>
         <small>${ui('蒙纳士中国学生会', 'Monash Chinese Students Association', '蒙納士中國學生會')}</small>
       </span>`;
 
@@ -172,10 +166,7 @@
           </button>
           <nav id="navigation" aria-label="${ui('主导航', 'Main navigation', '主導航')}">
             ${primaryLinks}
-            <details class="nav-dropdown">
-              <summary>${ui('部门招新', 'Recruitment', '部門招新')}</summary>
-              <div><div class="department-nav">${departmentLinks}</div></div>
-            </details>
+            ${a(departmentDirectoryRoute(), ui('部门招新', 'Recruitment', '部門招新'), page === 'recruitment' || page.startsWith('department-') ? 'active' : '')}
             ${secondaryLinks}
           </nav>
           <label class="language-control">
@@ -254,7 +245,7 @@
       about: () => `<section class="section" id="about">${heading(label('about'))}<div class="prose">${paragraphs(data.pages.about.paragraphs)}</div>${postGridOptional('about')}</section>`,
       events: () => `<section class="section" id="events">${linkedHeading(label('latest-events'),'latest-events.html')}${postGrid('latest-events',3)}</section>`,
       presidents: carousel,
-      departments: () => `<section class="section" id="departments">${linkedHeading(ui('部门介绍','Departments','部門介紹'),'recruitment.html',paragraphs([data.settings.departmentHint]))}${departments()}</section>`
+      departments: () => `<section class="section" id="departments">${linkedHeading(ui('部门介绍','Departments','部門介紹'),departmentDirectoryRoute(),paragraphs([data.settings.departmentHint]))}${departments()}</section>`
     };
     return data.homeSections.filter(section => section.visible)
       .map(section => sections[section.id]?.() || '').join('') + postGridOptional('home');
@@ -635,82 +626,26 @@
       render()
     }
   };
-  function applyMotion() {
-    if (reducedMotion() || !preferences.intro) closeIntro?.();
-    if (!data) return;
-    restart();
-    bindCollections();
-    window.MCSAHome.bindDepartments(viewContext(), reducedMotion());
-  }
-  window.addEventListener('mcsa-preferences-change', applyMotion);
-  motionQuery.addEventListener('change', notifyPreferences);
+  render();
+  intro();
   document.addEventListener('click', e => document.querySelectorAll('.nav-dropdown[open]').forEach(d => {
     if (!d.contains(e.target)) d.open = false
   }));
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') document.querySelectorAll('.nav-dropdown[open]').forEach(d => d.open = false)
   });
-  function connectionState(failed = false) {
-    const copy = {
-      zh: ['正在加载官网', '正在获取最新内容，请稍候。', '暂时无法加载官网', '请检查网络连接，稍后重试。', '重新加载'],
-      en: ['Loading MCSA', 'Getting the latest content. Please wait.', 'Unable to load the website', 'Please check your connection and try again.', 'Try again'],
-      hant: ['正在載入官網', '正在取得最新內容，請稍候。', '暫時無法載入官網', '請檢查網路連線，稍後重試。', '重新載入']
-    }[lang];
-    document.documentElement.lang = {zh: 'zh-CN', en: 'en', hant: 'zh-Hant'}[lang];
-    document.querySelector('#app').innerHTML = `<main id="main" class="connection-state" role="status"><img src="images/logo.png" alt="MCSA"><h1>${copy[failed ? 2 : 0]}</h1><p>${copy[failed ? 3 : 1]}</p>${failed ? `<button class="button primary" id="retry-content">${copy[4]}</button>` : ''}</main>`;
-    document.querySelector('#retry-content')?.addEventListener('click', () => location.reload());
-  }
-
-  let loading = false, loadGeneration = 0;
-  async function loadWebsite() {
-    if (loading) return;
-    loading = true;
-    const generation = ++loadGeneration;
-    homeReady = false;
-    closeIntro?.();
-    removePrivacyPrompt();
-    preferences = preferenceStore.refresh();
-    lang = preferences.language;
-    preferenceDraft = null;
-    clearInterval(timer);
-    window.MCSAHome.cleanup();
-    connectionState();
-    try {
-      previewMode = new URLSearchParams(location.search).has('preview');
-      const client = window.MCSAContent;
-      const preview = client?.previewRequested() || false;
-      const result = client ? await (preview ? client.previewData() : client.load())
-        : { data: window.MCSA_DATA, revision: 'local' };
-      if (generation !== loadGeneration) return;
-      if (!result.data?.pages?.home || !result.data.settings || !result.data.layout) throw new Error('Website content is missing.');
-      data = result.data;
-      if (preview) lang = 'zh';
-      document.documentElement.dataset.contentRevision = String(result.revision);
+  if (page !== 'admin' && !new URLSearchParams(location.search).has('preview') && window.MCSA_CONFIG.apiBase) {
+    fetch(window.MCSA_CONFIG.apiBase + '/site', {
+      signal: AbortSignal.timeout(6000)
+    }).then(r => {
+      if (!r.ok) throw Error();
+      return r.json()
+    }).then(r => {
+      data = r.data;
       render();
-      await intro();
-      if (generation !== loadGeneration) return;
-      if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
-      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-      if (generation !== loadGeneration) return;
-      homeReady = true;
-      privacyPrompt();
-    } catch (error) {
-      if (generation === loadGeneration) {
-        console.error('MCSA content loading failed:', error);
-        homeReady = false;
-        removePrivacyPrompt();
-        connectionState(true);
-      }
-    } finally {
-      if (generation === loadGeneration) loading = false;
-    }
-  }
-  // A browser Back navigation can restore the previous DOM without requesting HTML.
-  window.addEventListener('pageshow', event => {
-    if (event.persisted && !previewMode) {
-      loading = false;
-      loadWebsite();
-    }
-  });
-  loadWebsite();
+      if (document.querySelector('.opening')) document.querySelector('#app').inert = true;
+      const hash = location.hash.slice(1);
+      if (hash) document.getElementById(hash)?.scrollIntoView()
+    }).catch(() => {});
+  } else if (location.hash) setTimeout(() => document.getElementById(location.hash.slice(1))?.scrollIntoView(), 50);
 })();
