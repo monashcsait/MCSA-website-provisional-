@@ -105,7 +105,7 @@
       : `<button class="button primary department-link" type="button" disabled
           title="${ui('请在后台设置此部门的超链接','Add this department’s link in the CMS','請在後台設定此部門的超連結')}">${esc(label)} →</button>`;
     return `
-      <span class="detail-kicker">${department ? ui('部门详情','DEPARTMENT DETAIL','部門詳情') : ui('蒙纳士中国学生会','MCSA · OUR TEAMS','蒙納士中國學生會')}</span>
+      <span class="detail-kicker">${department ? ui('部门详情','DEPARTMENT DETAIL','部門詳情') : ui('蒙纳士大学中国学生会','MCSA · OUR TEAMS','蒙納士大學中國學生會')}</span>
       <h3>${esc(t(department?.name || settings.departmentOverviewTitle))}</h3>
       <p>${esc(t(department?.intro || settings.departmentOverview))}</p>
       <div class="department-pills">${pills(t(department?.keywords || settings.departmentOverviewTags),esc)}</div>
