@@ -6,6 +6,9 @@
   const reducedMotion = () => !preferences.motion || motionQuery.matches;
   let lang = preferences.language;
   if (document.body.dataset.page === 'admin') lang = 'zh';
+  let preferenceDraft = null, preferenceStatus = '', homeReady = false;
+  const previewMode = new URLSearchParams(location.search).has('preview');
+  let promptResize = null, statusResize = null, closeIntro = null;
   let data = window.MCSA_DATA;
   let slide = 0,
     timer = null,
@@ -627,7 +630,10 @@
     }
   };
   render();
-  intro();
+  intro().then(() => {
+    homeReady = true;
+    privacyPrompt();
+  });
   document.addEventListener('click', e => document.querySelectorAll('.nav-dropdown[open]').forEach(d => {
     if (!d.contains(e.target)) d.open = false
   }));
