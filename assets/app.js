@@ -157,7 +157,7 @@
     const brand = image(data.settings.logo, 'MCSA') + `
       <span>
         <b>Monash Chinese Students Association</b>
-        <small>${ui('蒙纳士中国学生会', 'Monash Chinese Students Association', '蒙納士中國學生會')}</small>
+        <small>${ui('蒙纳士大学中国学生会', 'Monash Chinese Students Association', '蒙納士大學中國學生會')}</small>
       </span>`;
 
     return `
