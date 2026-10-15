@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.export-*/
+test-results/
+.task-*.cjs

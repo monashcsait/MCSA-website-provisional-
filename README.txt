@@ -1,4 +1,11 @@
-Static export: upload all contents to your static host root. To edit, use the full CMS package; this export does not run the backend.
+Static export: use scripts/export-static.cjs and upload only its output directory to the static host. See STATIC-EXPORT.md for the current English review, public CMS export and deployment workflow. The site does not run the backend.
+
+Current workflow (11 October 2026)
+- Complete article templates live in templates/departments; Chinese and English remain separate.
+- General pages and published articles each use one HTML file with a rendered body and a language selector for zh/en/hant.
+- The CMS button "导出临时站公开内容" exports public content and referenced images.
+- Export into a fresh staging directory, run the checks, then publish that directory. --apply updates only this local checkout.
+- The Secretariat/Publicity commands below describe the older source workflow. They are not present in the current official checkout; use scripts/export-static.cjs here instead.
 
 Department pages (5 October 2026)
 - departments.html and department-*.html contain static HTML and CSS, with no browser JavaScript or content API dependency. English versions use the -en.html suffix; language links preserve the current department.

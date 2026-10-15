@@ -1,0 +1,569 @@
+{
+  "note": "Initial AI-assisted English completion. Existing English retained; new translations await editorial review. This checklist is not included in the public export.",
+  "fields": [
+    {
+      "path": "merchants[id=item-da970688-9674-4f90-81cf-7e36d680f7e0].name",
+      "zh": "Ocean Drivers",
+      "en": "Ocean Drivers",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-da970688-9674-4f90-81cf-7e36d680f7e0].text",
+      "zh": "地址：223A E Boundary Rd, Bentleigh East VIC 3165\n折扣：课程九折以及相关潜水装备八折\n联系方式：微信：hstcatking\n简介：墨尔本专业潜水俱乐部，提供专业培训与休闲潜水体验。经验丰富的教练团队，安全可靠，适合新手与进阶潜水员。探索海底世界，享受刺激与放松兼具的独特体验。",
+      "en": "Address: 223A E Boundary Rd, Bentleigh East VIC 3165\nDiscount: 10% off courses and 20% off related diving equipment\nContact: WeChat: hstcatking\nAbout: A professional diving club in Melbourne offering training and recreational diving experiences. Its experienced instructors provide a safe, reliable environment for beginners and advanced divers. Explore the underwater world in an experience that combines adventure and relaxation.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-5f22ca7b-8df5-4ed0-868a-621ea1158c69].name",
+      "zh": "Dsoul舞蹈室",
+      "en": "DSoul Dance Studio",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-5f22ca7b-8df5-4ed0-868a-621ea1158c69].text",
+      "zh": "地址：1/439 Elizabeth St, Melbourne VIC 3000\n折扣：9折\n联系方式：dsoul2008-2\n简介：DSoul 舞蹈室，释放热爱与自信的舞台！专业课程、多元舞种、轻松友好的学习氛围，无论是零基础入门还是进阶提升，都能在这里找到属于你的节奏与能量。",
+      "en": "Address: 1/439 Elizabeth St, Melbourne VIC 3000\nDiscount: 10% off\nContact: dsoul2008-2\nAbout: DSoul Dance Studio offers a space to express your passion and confidence. With professional classes, a range of dance styles and a relaxed, welcoming atmosphere, beginners and experienced dancers alike can find their rhythm.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-aeeb1dfb-db7c-4d1b-a828-70fa2a40b8ef].name",
+      "zh": "Mee Nail",
+      "en": "Mee Nail",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-aeeb1dfb-db7c-4d1b-a828-70fa2a40b8ef].text",
+      "zh": "地址：Shop22, Ground Floor/108 Bourke St, Melbourne VIC 3000\n折扣：9折\n联系方式：0466961588\n简介：Mee Nail 美甲店，打造精致指尖美学！从日常简约到甜酷个性风格，专业美甲师为你定制专属款式，让每一次抬手都充满细节与气质。",
+      "en": "Address: Shop22, Ground Floor/108 Bourke St, Melbourne VIC 3000\nDiscount: 10% off\nContact: 0466961588\nAbout: Mee Nail creates carefully styled nails, from understated everyday looks to bold, playful designs. Professional nail technicians tailor each style to you, adding a personal touch to every detail.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-4b153a26-c542-482c-9249-5b3830762dc5].name",
+      "zh": "Pandamonium Parkour",
+      "en": "Pandamonium Parkour",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-4b153a26-c542-482c-9249-5b3830762dc5].text",
+      "zh": "地址：1 Canterbury Rd, Camberwell VIC 3124\n折扣：9折\n联系方式：0423619423\n简介：Pandamonium Parkour Academy 是一家专注于跑酷（Parkour）、Freerunning 和翻转技巧（Tricking）训练的机构，主要提供儿童、青少年和成人课程。它的教学重点是安全地学习各种跑酷与空翻动作，例如后空翻、翻墙、跳跃、滚翻等。",
+      "en": "Address: 1 Canterbury Rd, Camberwell VIC 3124\nDiscount: 10% off\nContact: 0423619423\nAbout: Pandamonium Parkour Academy specialises in parkour, freerunning and tricking, with classes for children, teenagers and adults. Teaching focuses on learning movements safely, including backflips, wall vaults, jumps and rolls.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-b9c96bbd-8a09-4f10-b40f-e70d4cd21859].name",
+      "zh": "Dessert Culture（Clayton）",
+      "en": "Dessert Culture (Clayton)",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-b9c96bbd-8a09-4f10-b40f-e70d4cd21859].text",
+      "zh": "地址：340A Clayton Rd, Clayton VIC 3168\n折扣：85折\n联系方式：0395488864/0385243464\n简介：在Dessert Culture，一口吃遍台湾与香港经典甜品！纯手工打造 × 新鲜天然原料，健康与美味兼得。融合传统与现代创意，带来全新的亚洲甜品体验。100多种丰富选择，甜蜜惊喜等你发现！",
+      "en": "Address: 340A Clayton Rd, Clayton VIC 3168\nDiscount: 15% off\nContact: 0395488864 / 0385243464\nAbout: Discover classic Taiwanese and Hong Kong desserts at Dessert Culture. Handmade with fresh, natural ingredients, its desserts combine traditional flavours with modern ideas. Choose from more than 100 options for a fresh take on Asian desserts.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-c067769f-10ed-4c16-aeec-803fecb1ed69].name",
+      "zh": "AMAT维吾尔餐厅",
+      "en": "AMAT Uyghur Restaurant",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-c067769f-10ed-4c16-aeec-803fecb1ed69].text",
+      "zh": "地址：hop2/81 Koornang Rd, Carnegie VIC 3163\n折扣：现金支付享受全单9折；刷卡支付每满50刀可免费获赠酸奶一份(限每周二到周五）\n联系方式：+61 0390174313\n简介：墨尔本正宗新疆菜。手工拉面、羊肉串和大盘鸡深受好评，口味浓郁、分量十足。环境朴实却温馨，是朋友聚餐、体验特色美食的好去处。",
+      "en": "Address: hop2/81 Koornang Rd, Carnegie VIC 3163\nDiscount: 10% off the total bill when paying cash; when paying by card, receive one complimentary yoghurt for every $50 spent (Tuesday to Friday only)\nContact: +61 0390174313\nAbout: Authentic Xinjiang cuisine in Melbourne, known for hand-pulled noodles, lamb skewers and big-plate chicken. Rich flavours, generous portions and a simple, welcoming setting make it a place to gather with friends and try regional dishes.",
+      "reviewNote": "The Chinese source says hop2/81; confirm the street address before changing it."
+    },
+    {
+      "path": "merchants[id=item-1baafe2e-2868-4e2f-b86e-df02b2838748].name",
+      "zh": "Sticks N Straws（Clayton)",
+      "en": "Sticks N Straws (Clayton)",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-1baafe2e-2868-4e2f-b86e-df02b2838748].text",
+      "zh": "地址：326 Clayton Rd, Clayton VIC 3168\n折扣：9折\n联系方式：sticksandstraws.au@gmail.com\n简介：从暖心泡面到丝滑奶茶与诱人甜点，尽在 Sticks N Straws！正宗奶茶 × 自助泡面 × 现做华夫一次满足。精选75+款来自韩国、日本、中国、泰国等地的泡面（含素食选择），搭配现点现做的精品奶茶系列：水果茶、奶茶、抹茶、芝士奶盖、气泡饮与咖啡，应有尽有。再来一份现烤鸡蛋仔或香脆华夫，甜蜜升级！",
+      "en": "Address: 326 Clayton Rd, Clayton VIC 3168\nDiscount: 10% off\nContact: sticksandstraws.au@gmail.com\nAbout: Sticks N Straws brings together comforting instant noodles, smooth milk tea and desserts. Choose from more than 75 noodle varieties from Korea, Japan, China, Thailand and beyond, including vegetarian options. Pair them with made-to-order fruit tea, milk tea, matcha, cheese foam drinks, sparkling drinks or coffee, then finish with freshly baked egg waffles or crisp waffles.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-220d9952-4936-4431-a82a-743975d81b92].name",
+      "zh": "Dessert Culture（Springvale)",
+      "en": "Dessert Culture (Springvale)",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-220d9952-4936-4431-a82a-743975d81b92].text",
+      "zh": "地址：230 Springvale Rd, Springvale VIC 3171\n折扣：85折\n联系方式：(03) 8524 3464\n简介：Dessert Culture为你呈现最地道的台式与港式家常甜品。我们坚持手工制作，精选天然新鲜食材，只为带来健康又美味的亚洲甜品体验。以现代创意重新诠释传统，让甜品成为生活中的小确幸。超过100款精选甜品，总有一款符合您的胃口。",
+      "en": "Address: 230 Springvale Rd, Springvale VIC 3171\nDiscount: 15% off\nContact: (03) 8524 3464\nAbout: Dessert Culture serves homestyle Taiwanese and Hong Kong desserts. Handmade with fresh, natural ingredients, its menu brings modern ideas to traditional favourites. With more than 100 desserts to choose from, there is something for a wide range of tastes.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-6c5dfb43-6fd0-4978-abc5-eebbee28f7bd].name",
+      "zh": "Momo Tea Shoppe",
+      "en": "Momo Tea Shoppe",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-6c5dfb43-6fd0-4978-abc5-eebbee28f7bd].text",
+      "zh": "地址：Westfield Fountain Gate,25-55 Overland Dr, Narre Warren VIC 3805\n折扣：9折\n联系方式：0403155709\n简介：MOMO 奶茶,严选好茶,自然本味,快乐加倍\n\n",
+      "en": "Address: Westfield Fountain Gate, 25-55 Overland Dr, Narre Warren VIC 3805\nDiscount: 10% off\nContact: 0403155709\nAbout: MOMO milk tea uses carefully selected tea for natural flavours and a little extra happiness.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-9117a3f9-fc5b-4b73-a6aa-d1ce03c0d132].name",
+      "zh": "蜜雪冰城Mixue",
+      "en": "Mixue",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-9117a3f9-fc5b-4b73-a6aa-d1ce03c0d132].text",
+      "zh": "地址：Shop1/316A Clayton Rd, Clayton VIC 3168\n折扣：9折\n联系方式：微信：sfenghen\n简介：蜜雪冰城主打平价茶饮与冰淇淋，用实惠价格带来甜蜜快乐体验。",
+      "en": "Address: Shop1/316A Clayton Rd, Clayton VIC 3168\nDiscount: 10% off\nContact: WeChat: sfenghen\nAbout: Mixue specialises in affordable tea drinks and ice cream, offering sweet treats at accessible prices.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-b64519ea-bccb-437e-ad41-c1345f6571ca].name",
+      "zh": "Tasty Group",
+      "en": "Tasty Group",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-b64519ea-bccb-437e-ad41-c1345f6571ca].text",
+      "zh": "Tasty Group 旗下拥有深受学生喜爱的餐饮品牌，包括喜茶 Clayton、一麻一辣 Clayton、潮粵Clayton、潮粤 City, Miss Ping’s The Glen 等。在墨尔本多地设有门店，其中，多家门店位于Clayton 核心商圈，Monash University Clayton 校园附近，交通便利，是学生课后聚餐、日常用餐及朋友聚会的理想选择。",
+      "en": "Tasty Group operates dining brands popular with students, including HEYTEA Clayton, Yi Ma Yi La Clayton, Chao Yue Clayton, Chao Yue City and Miss Ping’s The Glen. It has locations across Melbourne, including several in central Clayton near Monash University’s Clayton campus. These accessible locations offer options for meals after class, everyday dining and get-togethers with friends.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-c7a6f081-d4ab-4c9a-b30a-34db981266c3].name",
+      "zh": "Robotica Coffee Chadstone",
+      "en": "Robotica Coffee Chadstone",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-c7a6f081-d4ab-4c9a-b30a-34db981266c3].text",
+      "zh": "地址：1341 Dandenong Rd, Malvern East VIC 3145\n折扣：9折\n联系方式：charleswang77\n简介：Robotica Coffee Chadstone 正在用创新、速度和日韩融合风味，重新定义即买即走饮品体验！\n位于 Chadstone Market Pavilion 的 Maita 内，我们提供高品质日式抹茶、港式冰茶、比利时热巧等饮品，并由机器人咖啡师快速制作。\n适合忙碌上班族、医护人员和追求高效高品质的咖啡爱好者。来 Robotica Coffee，体验快速、稳定、充满未来感的饮品吧！",
+      "en": "Address: 1341 Dandenong Rd, Malvern East VIC 3145\nDiscount: 10% off\nContact: charleswang77\nAbout: Robotica Coffee Chadstone combines innovation, speed and Japanese and Korean-inspired flavours for drinks on the go. Located inside Maita at Chadstone Market Pavilion, it serves Japanese matcha, Hong Kong-style iced tea, Belgian hot chocolate and more, prepared quickly by a robot barista. It caters to busy professionals, healthcare workers and coffee lovers looking for speed and quality.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-b518db73-751b-4b36-8627-97ecab5d076a].name",
+      "zh": "谭鸭血火锅",
+      "en": "Tan Yaxue Hotpot",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-b518db73-751b-4b36-8627-97ecab5d076a].text",
+      "zh": "地址：130 Bourke St，Melbourne\n折扣：9折（不与店内其他活动同享）\n联系方式：pjj416\n简介：谭鸭血火锅，主打浓郁地道的川味锅底和招牌鲜嫩鸭血，麻辣鲜香、越煮越入味。无论是朋友聚餐还是暖胃宵夜，都能一口吃出热辣满足感！",
+      "en": "Address: 130 Bourke St, Melbourne\nDiscount: 10% off (cannot be combined with other in-store offers)\nContact: pjj416\nAbout: Tan Yaxue Hotpot serves rich Sichuan-style soup bases and its signature tender duck blood curd. Its spicy, aromatic hotpot is an option for meals with friends or a warming late-night supper.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-bc7427ee-1ebd-47c0-af44-4630544926fd].name",
+      "zh": "奢侈茶 SHECHI TEA",
+      "en": "SHECHI TEA",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-bc7427ee-1ebd-47c0-af44-4630544926fd].text",
+      "zh": "地址：40 Railway Parade N, Glen Waverley VIC 3150\n折扣：9折\n简介：奢侈茶（CHECHI TEA）是一家融合东方茶文化与现代潮流饮品理念的精品茶饮品牌，致力于为顾客带来高品质的茶饮体验。品牌精选优质茶叶与新鲜原料，将传统茶香与创新口味结合，打造兼具颜值与风味的特色饮品。在墨尔本 Glen Waverley，奢侈茶凭借精致的空间设计、细腻的茶底风味以及年轻时尚的品牌风格，是许多学生与年轻消费者喜爱的聚会与休闲选择。",
+      "en": "Address: 40 Railway Parade N, Glen Waverley VIC 3150\nDiscount: 10% off\nAbout: SHECHI TEA combines traditional East Asian tea culture with contemporary drinks. Carefully selected tea and fresh ingredients bring together familiar aromas and new flavours. With its thoughtfully designed space, delicate tea bases and youthful style, the Glen Waverley shop is a gathering place for students and young customers.",
+      "reviewNote": "Chinese name field uses SHECHI TEA, while the description says CHECHI TEA; English follows the name field. Confirm with the partner."
+    },
+    {
+      "path": "merchants[id=item-35f75024-e804-4650-a9fa-f5563a22532f].name",
+      "zh": "MOMO TEA (Burwood)",
+      "en": "MOMO TEA (Burwood)",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-35f75024-e804-4650-a9fa-f5563a22532f].text",
+      "zh": "地址：77 Station St, Burwood VIC 3125\n折扣：85折\n简介：MOMO Tea 是一家充满年轻活力的奶茶品牌，主打高品质茶饮与创新口味结合。致力于为顾客带来清新、时尚又有层次感的味觉体验。无论是朋友聚会、学习休闲，还是日常解渴，MOMO Tea 都希望用一杯好茶，为生活增添一点轻松与快乐。",
+      "en": "Address: 77 Station St, Burwood VIC 3125\nDiscount: 15% off\nAbout: MOMO Tea is a youthful milk tea brand combining quality tea with inventive flavours. It aims to offer fresh, layered drinks for catching up with friends, study breaks or an everyday refreshment, adding a little ease and happiness to daily life.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-50f27748-2aa4-4f09-8012-7498ea41018c].name",
+      "zh": "齐齐哈尔烤肉",
+      "en": "Qiqihar BBQ",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-50f27748-2aa4-4f09-8012-7498ea41018c].text",
+      "zh": "地址：3/5 Derby Rd, Caulfield East VIC 3145\n折扣：9折\n简介：齐齐哈尔烤肉，感受东北炭火烟火气！精选鲜嫩肉质，现烤现吃，肉香浓郁、焦香四溢，搭配特色蘸料和热闹氛围，特别适合朋友聚餐，一口就能吃出地道东北味。",
+      "en": "Address: 3/5 Derby Rd, Caulfield East VIC 3145\nDiscount: 10% off\nAbout: Qiqihar BBQ brings the charcoal-grilled flavours of northeastern China to the table. Fresh meat is grilled to order and served with distinctive dipping sauces in a lively setting suited to meals with friends.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-0df0c8b8-0fcc-4c07-a748-d365897f5a9e].name",
+      "zh": "麻辣鲜生 Golden Roc Hotpot",
+      "en": "Golden Roc Hotpot",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-0df0c8b8-0fcc-4c07-a748-d365897f5a9e].text",
+      "zh": "地址：288 Clayton Rd, Clayton VIC 3168\n折扣：9折现金\n联系方式：Mgp261144343\n简介：就在学校附近，下课、赶 due、图书馆坐一天以后，来这里吃一顿真的幸福感直接拉满。最重要的是，它不是那种“只有辣”的麻辣烫，\n而是真正很香、很适合中国胃的味道。\n毛肚、肥牛、午餐肉、贡菜、宽粉、豆皮这些热门食材基本全都有，\n冬天来一碗热腾腾的麻辣烫，真的有种回血的感觉！\n无论是下课聚餐，社团活动结束续摊，深夜中国胃发作，和朋友一起边聊天边吃顿热乎的，都很适合来这里",
+      "en": "Address: 288 Clayton Rd, Clayton VIC 3168\nDiscount: 10% off when paying cash\nContact: Mgp261144343\nAbout: Near campus, Golden Roc Hotpot offers a comforting meal after class, a deadline or a day in the library. Its malatang combines spice with rich, familiar Chinese flavours. Popular ingredients include tripe, sliced beef, luncheon meat, dried lettuce stems, wide noodles and tofu skin. A steaming bowl is especially warming in winter, whether you are meeting friends after class, continuing a society gathering or satisfying a late-night craving.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-ddef729d-fb9e-426e-8708-08928385a2db].name",
+      "zh": "全聚福",
+      "en": "Quan Ju Fu",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-ddef729d-fb9e-426e-8708-08928385a2db].text",
+      "zh": "地址：383 Clayton Rd, Clayton VIC 3168\n折扣：9折现金\n简介：全聚福东北烧烤，主打东北烧烤和中国北方风味。餐厅以羊肉串、烤海鲜、冷面、炒饭等菜品比较受欢迎，营业时间也较晚，适合聚餐。",
+      "en": "Address: 383 Clayton Rd, Clayton VIC 3168\nDiscount: 10% off when paying cash\nAbout: Quan Ju Fu specialises in northeastern Chinese barbecue and northern Chinese dishes. Popular choices include lamb skewers, grilled seafood, cold noodles and fried rice. Its late opening hours make it an option for group meals.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-3966c55e-8e8c-4c6f-a9b9-28be3701ba2d].name",
+      "zh": "HAIKE 集运",
+      "en": "HAIKE Parcel Forwarding",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-3966c55e-8e8c-4c6f-a9b9-28be3701ba2d].text",
+      "zh": "折扣：MCSA专享集运礼包\n联系方式：微信扫码添加\n简介：HAIKE集运专为海外留学生提供优质的转运集运服务，添加客服享MCSA专属优惠礼包。集运全程负责，流程透明，提供仓储，派送等服务。",
+      "en": "Offer: An exclusive MCSA parcel-forwarding package\nContact: Scan the WeChat QR code to add customer service\nAbout: HAIKE provides parcel forwarding and consolidation for international students. Add customer service to receive the MCSA offer. Services include storage and delivery, with support throughout the forwarding process and a transparent workflow.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-e89b4882-4089-4ad9-8c1d-04603acaa0f2].name",
+      "zh": "亚细亚眼镜",
+      "en": "Yaxiya Eyewear",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-e89b4882-4089-4ad9-8c1d-04603acaa0f2].text",
+      "zh": "折扣：配眼镜或者墨镜享受市场价 8 折以上优惠\n联系方式：微信：DWM801620\n地址：浙江金华义乌国际商贸城 3 区 64 号门一楼 10 街 22885-22886-22887\n工厂位置:浙江台州市杜桥眼镜工业园区\n介绍：从事眼镜行业 30 多年,拥有自己的生产工厂。工厂位于中国眼镜之乡台州杜桥,门店位于义乌国际商贸城。对外出口全球,合作工厂达到 200 余家。对内与各大眼镜品牌,如暴龙、帕莎、木九十等一级经销商合作,有专业的验光和配镜团队。从选框建议到售后服务都有保障。致力于为同学们提供高质量高性价比的眼镜!",
+      "en": "Offer: At least 20% off market prices for prescription glasses or sunglasses\nContact: WeChat: DWM801620\nAddress: Stalls 22885-22886-22887, Street 10, Ground Floor, Gate 64, District 3, Yiwu International Trade City, Jinhua, Zhejiang, China\nFactory: Duqiao Eyewear Industrial Park, Taizhou, Zhejiang, China\nAbout: With more than 30 years in the eyewear industry, Yaxiya operates its own factory in Duqiao and a shop in Yiwu International Trade City. It exports worldwide and works with more than 200 partner factories. In China, it also works with primary distributors for brands including Bolon, PARIM and MUJOSH. Its professional optometry and fitting team offers support from frame selection to after-sales service, aiming to provide students with quality, affordable eyewear.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-0f5713bc-4d3f-4500-8e6c-d5650c685284].name",
+      "zh": "Ocycle City",
+      "en": "Ocycle City",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-0f5713bc-4d3f-4500-8e6c-d5650c685284].text",
+      "zh": "地址：66-68 Batman St， West Melbourne VIC 3003\n折扣：85折\n简介：Ocycle City 是墨尔本知名的电动自行车租赁品牌之一，专注于为城市通勤者、外卖骑手以及日常出行用户提供高性能、长续航的电动自行车服务。品牌位于 West Melbourne，提供灵活租赁、Rent-to-Own（租购）方案以及专业售后支持，致力于打造更高效、更环保的城市出行体验。无论是工作通勤还是城市探索，Ocycle City 都希望让每一次骑行更加轻松、安全与智能。",
+      "en": "Address: 66-68 Batman St, West Melbourne VIC 3003\nDiscount: 15% off\nAbout: Ocycle City is a Melbourne electric bicycle rental brand offering high-performance, long-range bikes for commuters, delivery riders and everyday travel. Based in West Melbourne, it provides flexible rentals, rent-to-own plans and professional after-sales support, aiming to make urban travel more efficient and environmentally friendly.",
+      "reviewNote": ""
+    },
+    {
+      "path": "merchants[id=item-92f6a15a-988b-4cce-98a2-a300f302e01d].name",
+      "zh": "D station",
+      "en": "D Station",
+      "reviewNote": "Confirm the preferred English trading name with the partner."
+    },
+    {
+      "path": "merchants[id=item-92f6a15a-988b-4cce-98a2-a300f302e01d].text",
+      "zh": "地址：365 Queen Street, Melbourne VIC 3000 / 139 Koornang Rd, Carnegie VIC 3163\n折扣：办理任意 Telstra 网络及手机计划用户,赠送插座(支持双充 Type C 和 USB A口,价值$34.95)  \n简介：D Station Computers 是位于墨尔本市中心的人气数码产品店，主营 DIY 电脑组装、维修以及各类数码硬件配件。无论是游戏玩家还是学生或办公需求，D Station 都致力于提供高性能、高性价比的电脑解决方案。凭借专业技术支持、贴心售后服务以及丰富的硬件选择，D Station 已逐渐成为墨尔本本地年轻人和华人电脑玩家喜爱的科技空间。",
+      "en": "Addresses: 365 Queen Street, Melbourne VIC 3000 / 139 Koornang Rd, Carnegie VIC 3163\nOffer: Customers signing up for any Telstra internet or mobile plan receive a complimentary power adapter with Type-C and USB-A charging ports (valued at $34.95)\nAbout: D Station Computers is a Melbourne city store specialising in custom PC builds, repairs and computer hardware. It offers computer solutions for gaming, study and office use, supported by technical advice, after-sales service and a broad hardware selection.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=event-1].title",
+      "zh": "【MCSA资讯】山河映月 · 万里归心：墨尔本留学生2026中秋国庆文艺晚会 现已开票",
+      "en": "MCSA News | Tickets now available: Melbourne International Students’ 2026 Mid-Autumn Festival and National Day Gala — Mountains, Moonlight and Home",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-688880a4-b26e-4e4b-ad0d-4a7bc975bfa3].title",
+      "zh": "【MCSA活动】校友桌游月 · 第二场：纸牌专场正式开启！",
+      "en": "MCSA Events | Alumni Board Game Month, Session 2: Card Games",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-688880a4-b26e-4e4b-ad0d-4a7bc975bfa3].text",
+      "zh": "毕业之后，你有多久没有和 Monash 校友一起，坐下来安心打一下午牌？\n也许我们毕业于不同年份，来自不同专业，如今也走向不同的行业。\n但这一次——不需要准备正式的 Networking 话题，也不需要提前认识任何人。\n\n洗好牌，发到手，游戏就开始了。\n\n上周六，「校友桌游月」首场狼人杀专场已经开局。现在，第二场如约而至：\n\n",
+      "en": "How long has it been since you sat down with fellow Monash alumni for a relaxed afternoon of cards?\nWe may have graduated in different years, studied different subjects and gone into different industries. This time, there is no need to prepare formal networking topics or know anyone beforehand.\nShuffle, deal and let the games begin.\nLast Saturday, Alumni Board Game Month opened with a Werewolf session. Now it is time for the second gathering.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-974e7c2a-83e9-4a00-9f3d-47f4225ca5f9].title",
+      "zh": "【MCSA资讯】2026国际学生招聘博览会（International Student Career Expo）正式启动",
+      "en": "MCSA News | The 2026 International Student Career Expo launches",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-974e7c2a-83e9-4a00-9f3d-47f4225ca5f9].text",
+      "zh": "对于在澳国际学生而言，求职路上最大的挑战之一，是许多岗位对在澳身份设有限制。花费大量时间投递申请，却可能最终发现自己并不在招聘范围之内。\n这是许多国际学生共同面对的问题，也是我们举办本次博览会的初衷\n正因如此，本次博览会的所有参展企业均对国际学生开放招聘，部分企业更具备提供签证担保的资质与意愿。我们希望每一位到场的同学，都能将时间与精力投入到真正属于自己的机会之中。\n2026国际学生招聘博览会（International Student Career Expo）致力于为国际学生搭建专业、高效的求职对接平台。现场设有招聘展位与信息咨询台，汇聚40余家知名企业、政府机构及专业组织，让同学们与招聘负责人面对面交流，了解招聘需求，获取一手职业信息，探索更多实习与就业机会。\n无论您处于职业规划的哪个阶段，本次博览会都将为您提供宝贵的信息与机遇。诚挚邀请各位同学踊跃参与。\n2026国际学生招聘博览会组委会",
+      "en": "One of the biggest challenges for international students seeking work in Australia is that many roles have residency restrictions. After spending time applying, students may discover they are not eligible. This shared experience is why we created this expo.\nAll exhibitors are recruiting international students, and some have the ability and willingness to offer visa sponsorship. We want students to focus their time and energy on opportunities open to them.\nThe 2026 International Student Career Expo offers a professional platform to connect students with employers. Recruitment booths and information desks bring together more than 40 companies, government agencies and professional organisations. Meet recruiters, learn about their requirements, get first-hand career information and explore internships and jobs.\nWhatever stage you are at in your career planning, we warmly invite you to take part.\n2026 International Student Career Expo Organising Committee",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-dbbfa045-989b-4151-a386-0e0e715d5ddb].title",
+      "zh": "【MCSA活动回顾】午夜信号局 | 同频之旅",
+      "en": "MCSA Highlights | Blue Signal: A Night of Connection",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-dbbfa045-989b-4151-a386-0e0e715d5ddb].text",
+      "zh": "9 月 6 日傍晚，\n50 位同学齐聚 Kicks Bar，\n在游戏、音乐与互动中，\n让一次偶然的相遇自然发生。\n现在，回放那个蓝色夜晚。",
+      "en": "On the evening of 6 September, 50 students gathered at Kicks Bar. Through games, music and conversation, new connections happened naturally. Here is a look back at that blue-lit evening.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-6ad4c512-b40e-4f5d-9c1e-3e12a987643f].title",
+      "zh": "【MSCA回顾】Sovereign Hill 淘金小镇大团建活动回顾",
+      "en": "MCSA Highlights | Team outing to Sovereign Hill",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-6ad4c512-b40e-4f5d-9c1e-3e12a987643f].text",
+      "zh": "团建如约而至\n一起奔赴小镇\n漫步复古街道\n定格欢乐时光",
+      "en": "Our team outing arrived as planned. Together we explored the gold-rush town, wandered its historic streets and captured happy moments.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-5b59c236-4abb-45d6-9b48-9ab8131cb863].title",
+      "zh": "【MCSA资讯】清电澳行丨参访蒙纳士大学",
+      "en": "MCSA News | Tsinghua Electrical Engineering students visit Monash University",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-5b59c236-4abb-45d6-9b48-9ab8131cb863].text",
+      "zh": "8月21日，清华大学电机系“清电澳行”赴澳大利亚实践支队走进蒙纳士大学克莱顿校区，与蒙纳士大学中国学生会成员及在校中国学生开展座谈交流和校园参访，在思想碰撞与实地探访中感受多元校园文化，了解澳大利亚高校的人才培养方式与工程创新生态。\n蒙纳士大学创立于1958年，克莱顿校区是学校最早设立且规模最大的校区。这里集中了工程、科学、医学等多个学科的教学科研资源。2026年QS世界大学学科排名中，蒙纳士大学药学与药理学位列全球第二。支队在参访中既了解了学校的学科与培养体系，也通过同龄人的讲述观察海外校园中真实的学习与生活。",
+      "en": "On 21 August, the “Qingdian Australia” student delegation from Tsinghua University’s Department of Electrical Engineering visited Monash University’s Clayton campus. They met MCSA members and Chinese students for discussions and a campus tour, exploring campus diversity, approaches to education and engineering innovation in Australia.\nFounded in 1958, Monash has its oldest and largest campus at Clayton, with teaching and research across engineering, science, medicine and other disciplines. In the 2026 QS subject rankings, Monash placed second worldwide for pharmacy and pharmacology. The visit introduced the delegation to the university’s disciplines and education system, while conversations with peers offered a view of everyday study and life overseas.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-f7bbc9a7-7420-4b63-942d-852eb623151c].title",
+      "zh": "【MCSA资讯】百博行·奔光明！13个编制、500+岗位，博士专场等你来！",
+      "en": "MCSA News | Doctoral careers in Guangming: 13 public-sector positions and over 500 opportunities",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-f7bbc9a7-7420-4b63-942d-852eb623151c].text",
+      "zh": "百万英才汇南粤”\n百博行・奔光明」博士人才秋季见面会\n正式启幕！\n优质岗位现场对接\n走进光明科学城\n解锁科研发展与城市生活新可能\n入编考试+现场招聘+参访研学\n千万别错过这场专属盛会",
+      "en": "The autumn doctoral talent gathering “Baibo Xing · Ben Guangming”, part of the “Million Talents in Guangdong” initiative, is now open. Connect with employers and visit Guangming Science City to explore research careers and city life. The programme combines public-sector recruitment examinations, on-site hiring and study visits.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-d9eb3891-2097-4191-883b-bb10df74b281].title",
+      "zh": "【MCSA资讯】【免费参会·火热征稿】参会礼品抢先看！｜第十六届优秀青年学者论文报告会征稿启事",
+      "en": "MCSA News | Free attendance and call for papers: The 16th Young Scholars’ Research Symposium — preview the attendee gifts",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-d9eb3891-2097-4191-883b-bb10df74b281].text",
+      "zh": "026年，澳大利亚中国博士沙龙（CAPS）迎来成立二十周年的重要历史时刻。值此之际，CAPS诚挚邀请广大博士生、博士后、青年学者及科研工作者积极投稿，参加第十六届澳大利亚博士生及青年学者优秀论文报告会，共同分享最新科研成果，促进跨学科交流与合作，携手探索未来科技创新与社会发展的新机遇。\n本届大会将汇聚来自澳大利亚及国际高校、科研院所和产业界的优秀青年学者，为大家提供展示研究成果、拓展学术合作、促进科研创新的高水平交流平台。",
+      "en": "In 2026, CAPS (澳大利亚中国博士沙龙) marks its 20th anniversary. CAPS invites doctoral students, postdoctoral researchers, young scholars and research professionals to submit papers to its 16th symposium for doctoral students and young scholars. Share new findings, build interdisciplinary connections and explore opportunities in innovation and social development.\nThe conference will bring together young scholars from Australian and international universities, research institutes and industry to present research, develop collaborations and support innovation.",
+      "reviewNote": "Confirm the organisation’s preferred English name and the year, written as 026 in the Chinese source."
+    },
+    {
+      "path": "posts[id=item-c3ca4c2c-b626-411b-80b9-6aa5c54e3ffb].title",
+      "zh": "【26S2 Welcome Party】新生欢迎会｜多重好礼等你拿",
+      "en": "2026 Semester 2 Welcome Party | Meet new friends and win prizes",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-c3ca4c2c-b626-411b-80b9-6aa5c54e3ffb].text",
+      "zh": "一起认识新朋友，开启你的墨尔本生活!\n来到新的城市，\n不如从一次轻松有趣的Welcome Party开始。\n兴趣分组·趣味游戏·茶歌交流找到志同道合的新朋友，开启属于你的校园社交圈!\n",
+      "en": "Meet new friends and begin your Melbourne life! What better way to settle into a new city than a relaxed Welcome Party? Interest groups, fun games and conversations over tea and music will help you meet like-minded people and build your campus social circle.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-7b257be2-b95a-44f6-85b7-0f8ac5135c07].title",
+      "zh": "【MCSA活动】Welcome Party 回顾",
+      "en": "MCSA Highlights | Welcome Party",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-7b257be2-b95a-44f6-85b7-0f8ac5135c07].text",
+      "zh": "初来乍到，也许一切都还带着陌生感。\n但在这场 Welcome Party 里，我们用笑容、交流和合照，\n慢慢拉近了彼此的距离",
+      "en": "Arriving somewhere new can feel unfamiliar. At this Welcome Party, smiles, conversations and group photos helped us get to know one another.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-9e75f820-24f6-4d6d-9e06-f69c70ebdb6c].title",
+      "zh": "【MCSA资讯】｜AI创业大赛·德邻杯2026",
+      "en": "MCSA News | Delin Cup 2026 AI Entrepreneurship Competition",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-9e75f820-24f6-4d6d-9e06-f69c70ebdb6c].text",
+      "zh": "由德邻资本主办，深圳市龙华区科创局指导，深圳天使母基金支持的《德领杯·2026AI创业大赛》开幕！",
+      "en": "The Delin Cup 2026 AI Entrepreneurship Competition has opened. It is organised by Delin Capital, guided by the science and technology innovation bureau of Shenzhen’s Longhua District, and supported by the Shenzhen Angel Fund of Funds.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-74b37b99-cd6e-4025-ba62-b83bdedf6133].title",
+      "zh": "【MCSA活动】校友桌游月 · 第一场：狼人杀专场正式开启！",
+      "en": "MCSA Events | Alumni Board Game Month, Session 1: Werewolf",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-74b37b99-cd6e-4025-ba62-b83bdedf6133].text",
+      "zh": "我们知道，并不是每一位校友都是狼人杀资深玩家。因此第一期特别定位为「新手友好场」。正式游戏开始前，主持人会进行完整的规则说明、角色确认与游戏流程讲解，\n现场工作人员也会全程协助引导。这不仅不是一场高压的高手竞技局，更是属于 Monash 校友的一次轻松解压社交。",
+      "en": "Not every alumnus is an experienced Werewolf player, so our first session is designed to welcome beginners. Before play begins, the host will explain the rules, roles and game flow, with staff on hand throughout. This is a relaxed opportunity for Monash alumni to socialise and unwind.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-1091717a-3cc7-4c24-8f46-fbbdafc66003].title",
+      "zh": "【MCSA活动】【轻社交交友｜午夜信号局】在蓝色夜晚，寻找与你同频的信号",
+      "en": "MCSA Events | Blue Signal: Find Your Connection After Dark",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-1091717a-3cc7-4c24-8f46-fbbdafc66003].text",
+      "zh": "城市入夜，人群来来往往。 我们每天接收到无数讯息，却不一定能遇见真正同频的人。  这个夜晚，我们想把社交变得简单一点。  不用准备完美的开场白，也不用担心不知道该和陌生人聊什么。 来到 Blue Signal 午夜信号局，领取属于你的今晚信号，在游戏、音乐和互动中，让一次偶然的相遇自然发生。",
+      "en": "Night falls and people pass through the city. We receive countless messages every day, but meeting someone on the same wavelength can be harder. For this evening, we want to make socialising simple. There is no need for a perfect opening line or a prepared conversation. Join Blue Signal, pick up your signal for the night, and let games, music and interaction create new connections.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-8dc22646-8b9c-4a32-b70e-e5e4a230f6da].title",
+      "zh": "【MCSA资讯】聚焦丨“留学生的故事”有奖征集评选活动启动",
+      "en": "MCSA News | “Stories of International Students” opens for prize submissions",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-8dc22646-8b9c-4a32-b70e-e5e4a230f6da].text",
+      "zh": "为深入贯彻落实习近平总书记致欧美同学会成立110周年重要贺信精神，充分发挥广大海外留学生“行走的中国名片”作用，《留学生》杂志社面向海外中国留学生开展“留学生的故事”有奖征集评选活动，旨在以留学生独特视角向世界讲述真实、立体、全面的中国故事。",
+      "en": "Following President Xi Jinping’s congratulatory letter on the 110th anniversary of the Western Returned Scholars Association, the magazine “International Students” is inviting Chinese students overseas to enter its “Stories of International Students” competition. The initiative aims to recognise students as representatives of China abroad and share authentic, multidimensional stories of China through their perspectives.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-34ec0769-9b82-46c8-b1f8-ce91df879e67].title",
+      "zh": "【MCSA资讯】欢迎来到蒙纳士！在国际学生日，开启你的墨尔本之旅",
+      "en": "MCSA News | Welcome to Monash: Begin your Melbourne journey at International Student Day",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-34ec0769-9b82-46c8-b1f8-ce91df879e67].text",
+      "zh": "你在澳大利亚的旅程即将开始!非常期待你在下周走进蒙纳士校园际学生精心设计的全天迎新体验\n作为国际学生想要快速了解蒙纳士大学的学习生活?我们诚邀你参加国际学生日，这是一场为国\n这个活动将帮助你快速适应新环境、了解签证要求、结识志同道合的新朋友，让你从入学第一天\n就充满自信。这是开启你墨尔本生活最完美的方式。",
+      "en": "Your Australian journey is about to begin, and we look forward to welcoming you to Monash next week. International Student Day is a full-day orientation experience designed to help international students discover university life. Learn how to settle in, understand visa requirements and meet new friends, so you can feel confident from your first day and begin your Melbourne experience.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-e0586098-a161-4b64-932d-06908750c627].title",
+      "zh": "【MCSA回顾】活动回顾｜首个全澳行前会！澳大利亚高校中国新生线上行前交流会圆满举行！",
+      "en": "MCSA Highlights | First nationwide online pre-departure gathering for new Chinese students at Australian universities",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-e0586098-a161-4b64-932d-06908750c627].text",
+      "zh": "由教育部留学服务中心联合\n全澳高校各中国学联共同主办，\n并获得中国驻悉尼总领事馆支持的\n2026澳大利亚高校中国新生线上行前交流会\n圆满举行！，全澳高校各中国学联共同主办，并获得中国驻悉尼总领事馆支持的2026澳大利亚高校中国新生线上行前交流会圆满举行！",
+      "en": "The 2026 online pre-departure gathering for new Chinese students at Australian universities was successfully held. It was co-organised by the Chinese Service Center for Scholarly Exchange and Chinese student associations across Australian universities, with support from the Chinese Consulate-General in Sydney.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-bbd8c035-7ec7-45c5-93c9-1731194d0453].title",
+      "zh": "【MCSA活动回顾】赴一场蒙纳士之约｜26S1 蒙纳士校友茶话会\n",
+      "en": "MCSA Highlights | A Monash Reunion: Semester 1 2026 Alumni Tea Gathering",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-bbd8c035-7ec7-45c5-93c9-1731194d0453].text",
+      "zh": "2026年5月23日，蒙纳士校友茶话会圆满举办。近40位在校学子、毕业校友齐聚线下，以轻社交为载体，搭建经验互通、资源对接的校友交流平台，整场活动轻松无压力，兼具交流温度与实用干货。",
+      "en": "On 23 May 2026, nearly 40 current students and graduates came together for the Monash Alumni Tea Gathering. In a relaxed setting, participants exchanged experiences and connections, combining friendly conversation with practical insights.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-a2de3824-1693-4240-85a8-0409a7bb9df9].title",
+      "zh": "【MCSA活动回顾】蒙纳士校友会｜《友说远川》香港篇——“升学·就业·身份”线上分享会",
+      "en": "MCSA Highlights | Alumni Perspectives: Hong Kong — online session on further study, employment and residency",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-a2de3824-1693-4240-85a8-0409a7bb9df9].text",
+      "zh": "MCSA校友会活动《友说远川》——香港线上分享会圆满落幕，现场干货满满、互动热烈！为方便未能参与的小伙伴快速掌握重点，我们整理出了专场的精华内容，涵盖升学、身份与就业三大方向，帮助校友们少走弯路，高效规划未来！",
+      "en": "MCSA’s “Alumni Perspectives” online session on Hong Kong concluded with useful insights and lively discussion. For those who could not attend, we have collected highlights on further study, residency and employment to help alumni plan their next steps.",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-bba77f7f-d9a6-44ee-a3c8-114fe6018a6f].title",
+      "zh": "【MCSA活动回顾】  谜团落幕，真相大白！",
+      "en": "MCSA Highlights | Detective Night: The mystery is solved!",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-bba77f7f-d9a6-44ee-a3c8-114fe6018a6f].text",
+      "zh": "一场沉浸式推理盛宴🌪️\n一次智慧与胆识的较量\nMCSA 侦探夜圆满落幕\n感谢每一位侦探的倾情参与 🙌🏼",
+      "en": "An immersive evening of mystery and a test of wit and courage: MCSA Detective Night has come to a close. Thank you to every detective who joined us!",
+      "reviewNote": ""
+    },
+    {
+      "path": "posts[id=item-8ad6d312-4993-4b14-a87b-4d0d5a154a29].title",
+      "zh": "【MCSA活动回顾】篮球团体赛完美收官丨热血鏖战，梦想滚烫",
+      "en": "MCSA Highlights | Basketball Team Tournament: Passion on the Court",
+      "reviewNote": "Event titles are descriptive translations; confirm official wording with the organiser."
+    },
+    {
+      "path": "posts[id=item-8ad6d312-4993-4b14-a87b-4d0d5a154a29].text",
+      "zh": "终场哨响，欢呼炸裂  一场比赛，一段故事  每一秒惊心动魄的拼搏  谱写下一段段珍贵的赛场轨迹  球场上的抗还与配合  让我们见证篮球的魅力",
+      "en": "The final whistle sounded and the crowd erupted. Every game told a story, with each hard-fought moment creating memories on the court. Competition and teamwork showed us what makes basketball so exciting.",
+      "reviewNote": ""
+    },
+    {
+      "path": "regions[id=clayton].name",
+      "zh": "Clayton",
+      "en": "Clayton",
+      "reviewNote": ""
+    },
+    {
+      "path": "regions[id=city].name",
+      "zh": "City",
+      "en": "City",
+      "reviewNote": ""
+    },
+    {
+      "path": "regions[id=caulfield].name",
+      "zh": "Caulfield",
+      "en": "Caulfield",
+      "reviewNote": ""
+    },
+    {
+      "path": "regions[id=glen].name",
+      "zh": "Glen Waverley",
+      "en": "Glen Waverley",
+      "reviewNote": ""
+    },
+    {
+      "path": "regions[id=item-197808c3-fbdc-4a46-8543-5dace0db8d0b].name",
+      "zh": "Carnegie",
+      "en": "Carnegie",
+      "reviewNote": ""
+    },
+    {
+      "path": "pages.about.paragraphs.1",
+      "zh": "同时我们活跃于微信公众号、Instagram、微博、小红书和抖音等平台。每届干事超过100人，注册会员逾15,000人，举办过多场大型活动，并持续为中国留学生整理实用攻略与指南。",
+      "en": "We are active on WeChat, Instagram, Weibo, Xiaohongshu and Douyin. Each committee has more than 100 members, and our registered membership exceeds 15,000. We have held many large events and continue to prepare practical guides for Chinese international students.",
+      "reviewNote": ""
+    },
+    {
+      "path": "pages.recruitment.paragraphs.0",
+      "zh": "如果你希望参与活动策划、媒体运营、设计宣传、外联合作或服务同学，欢迎加入 MCSA。",
+      "en": "Join MCSA if you would like to plan events, manage media, create designs and publicity, build partnerships or support fellow students.",
+      "reviewNote": ""
+    },
+    {
+      "path": "sponsors[id=item-d62455ba-bc5c-4ae8-a19b-cb5fc8740470].name",
+      "zh": "支付宝",
+      "en": "Alipay",
+      "reviewNote": ""
+    },
+    {
+      "path": "sponsors[id=item-07c3fc90-80b0-4e89-8068-a13acd793abd].name",
+      "zh": "海马课堂",
+      "en": "Haima Classroom",
+      "reviewNote": "Haima Classroom is a descriptive translation; confirm the sponsor’s official English name."
+    },
+    {
+      "path": "sponsors[id=item-415d5917-87e2-403e-9481-deba5f68bd4b].name",
+      "zh": "DBC",
+      "en": "DBC",
+      "reviewNote": ""
+    },
+    {
+      "path": "terms[id=item-7a9d6cbd-d391-491a-8ea5-b00ed7287aef].name",
+      "zh": "潘琮砚",
+      "en": "Pan Congyan",
+      "reviewNote": "Confirm preferred romanisation."
+    }
+  ]
+}

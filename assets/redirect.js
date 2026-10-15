@@ -1,0 +1,1 @@
+(() => {const u=new URL(document.body.dataset.redirect,location.href);const query=new URLSearchParams(location.search);const lang=query.get('lang')||window.MCSAPreferences.create().value.language;u.searchParams.set('lang',lang);query.forEach((v,k)=>u.searchParams.set(k,v));if(location.hash)u.hash=location.hash;location.replace(u.href);})();

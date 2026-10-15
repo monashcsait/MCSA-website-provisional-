@@ -1,0 +1,10 @@
+{
+  "name": "mcsa-provisional-static",
+  "private": true,
+  "scripts": {
+    "export": "node scripts/export-static.cjs",
+    "test": "node --test tests/preferences.test.cjs tests/static-export.test.cjs",
+    "test:browser": "node --test tests/static-browser.test.cjs"
+  },
+  "devDependencies": { "playwright": "1.62.1" }
+}
