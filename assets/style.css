@@ -1805,7 +1805,6 @@ html[lang=en] .filters { flex-wrap:wrap; }
 html[lang=en] .filters label { min-width:0; max-width:100%; }
 html[lang=en] .filters select { max-width:100%; }
 
-.static-language-links { display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; padding:1rem; }
 html[lang=en] .header-inner > *, html[lang=en] .static-header-inner > * { min-width:0; }
 html[lang=en] .static-brand { overflow-wrap:anywhere; }
 .post-body p { white-space:pre-line; }

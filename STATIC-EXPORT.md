@@ -8,8 +8,6 @@ General pages switch languages within the same HTML page. Only department pages 
 3. For first-time setup, install Node.js 20+ and run these commands in the temporary site repository:
 
 ```powershell
-cd "C:\Users\27396\MCSA-Web\MCSA-website-provisional-"
-
 npm install
 npx playwright install chromium
 ```
@@ -28,4 +26,4 @@ python -m http.server 8766 --directory .export-review
 
 - Use a new output directory for each export. Fix missing translations, missing images or broken links before retrying.
 - Omit `--snapshot` to export the repository's `data/site.js` instead.
-- Maintain separate Chinese and English department articles in `templates/departments/`. CMS department summaries do not overwrite them.
+- Department names are fixed. Maintain their separate Chinese and English articles in `templates/departments/`; CMS department summaries do not overwrite them.
