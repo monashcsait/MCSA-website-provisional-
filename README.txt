@@ -38,3 +38,25 @@ versions are static HTML. Images 640–644 are separate from the Secretariat fil
 content/departments/publicity-originals.json records checksums for the five
 original images and four unchanged source screenshots. Recruitment dates and
 account statistics are historical. English translation awaits editorial review.
+
+Static discount partners (15 October 2026)
+-----------------------------------------
+discounts.html, discounts-en.html and discounts-hant.html are standalone HTML
+pages styled by assets/discounts-static.css and the existing assets/style.css.
+They load no JavaScript, CMS API, embedded map or geolocation service. Category
+links jump to sections; native details/summary elements expand partner details.
+Directions links open Google Maps using the existing address text. D station's
+two addresses have separate links. Partners without an address have no directions
+link. Interactive maps, nearby sorting and text search stay in the official site.
+
+The 22 partner records, images, categories and regions come from the provisional
+data/site.js snapshot at cc8bb9d; that file and all other JavaScript are unchanged.
+Merchant names, offers, contacts and descriptions are retained. English pages
+explicitly retain Chinese partner copy where English text is missing. Existing
+region/address discrepancies are preserved for content-owner review, rather than
+silently corrected. Confirm offer validity and conditions with each business.
+
+To update partner content, edit the static HTML variants together after confirming
+the source details. These pages do not automatically consume data/site.js updates.
+Preview: python3 -m http.server 8766, then open /discounts.html.
+Use a feature branch and draft PR for review before merging or deployment.
