@@ -38,6 +38,7 @@ test('English navigation, filters, article, department and refresh stay usable w
         await page.locator('.department-link').click();
         assert.ok(new URL(page.url()).pathname.endsWith(`department-${department.id}-en.html`));
         await page.getByRole('link',{name:'Home',exact:true}).click();
+        await page.waitForFunction(()=>window.MCSA?.lang==='en');
         assert.equal(new URL(page.url()).pathname,'/index.html');
         assert.equal(await page.locator('#language').inputValue(),'en');
       }
@@ -74,6 +75,28 @@ test('English navigation, filters, article, department and refresh stay usable w
       if(post) assert.equal(await page.title(),(post.title.en||post.title.zh).replace(/\n/g,' ')+' | MCSA');
       if(width===390){await page.locator('.menu-button').click();assert.equal(await page.locator('.menu-button').getAttribute('aria-expanded'),'true');}
       if(process.env.MCSA_SCREENSHOT_DIR)await page.screenshot({path:path.join(process.env.MCSA_SCREENSHOT_DIR,`provisional-english-${width}.png`),fullPage:true});
+      assert.deepEqual(errors,[]);
+    } finally {await context.close();}
+  }
+});
+
+test('About navigation reaches the homepage section and retains the selected language',async()=>{
+  for(const width of [390,1440]) {
+    const {context,page,errors}=await setup({viewport:{width,height:960}});
+    try {
+      for(const lang of ['zh','en','hant']) {
+        await page.goto(`${server.url}/latest-events.html?lang=${lang}`);
+        await page.waitForFunction(language=>window.MCSA?.lang===language,lang);
+        if(width===390)await page.locator('.menu-button').click();
+        const name={zh:'关于我们',en:'About us',hant:'關於我們'}[lang];
+        const link=page.locator('#navigation').getByRole('link',{name,exact:true});
+        assert.equal(await link.getAttribute('href'),`index.html?lang=${lang}#about`);
+        await link.click();
+        await page.waitForURL(`${server.url}/index.html?lang=${lang}#about`);
+        await page.waitForFunction(language=>window.MCSA?.lang===language,lang);
+        assert.equal(await page.locator('#language').inputValue(),lang);
+        assert.equal(await page.locator('#about').isVisible(),true);
+      }
       assert.deepEqual(errors,[]);
     } finally {await context.close();}
   }

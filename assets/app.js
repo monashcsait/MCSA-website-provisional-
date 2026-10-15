@@ -142,7 +142,7 @@
         return ''
       }
     }
-    return /^(?:[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_.-]+)*\.(?:html|png|jpe?g|webp|gif)(?:[?#][a-zA-Z0-9_=&%-]+)?|#[a-zA-Z0-9_-]+)$/.test(v) && !v.includes('..') ? v : ''
+    return /^(?:[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_.-]+)*\.(?:html|png|jpe?g|webp|gif)(?:\?[a-zA-Z0-9_=&%-]+)?(?:#[a-zA-Z0-9_-]+)?|#[a-zA-Z0-9_-]+)$/.test(v) && !v.includes('..') ? v : ''
   }
 
   function image(src, alt, crop, extra = '') {
